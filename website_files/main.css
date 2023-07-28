@@ -2613,6 +2613,10 @@ input, select, textarea {
 
 		}
 
+		.first_element {
+			padding-left: 0;
+		}
+
 /* Actions */
 
 	ul.actions {
