@@ -2597,6 +2597,7 @@ input, select, textarea {
 		.container {
 		width: 100%;
 		text-align: center;
+		padding-left: 0;
 		}
 		
 		.horizontal-list {
