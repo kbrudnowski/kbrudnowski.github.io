@@ -1,386 +1,884 @@
-<!DOCTYPE html>
-
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Chris' Portfolio Website</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Krzysztof Brudnowski — Senior Software / Data Engineer</title>
+<meta name="description" content="Senior software and data engineer based in Gdańsk. Python, dbt, GCP, LLM agents, data pipelines. 5+ years in production.">
+<meta property="og:title" content="Krzysztof Brudnowski — Senior Software / Data Engineer">
+<meta property="og:description" content="Building data platforms and AI systems that run in production.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230a0f1a'/><text x='6' y='24' font-size='20' fill='%2364ffda' font-family='monospace'>K</text></svg>">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="description"
-          content="Welcome to my personal website! I am a Python developer passionate about creating efficient and elegant solutions. Explore my portfolio, where you'll find a showcase of my projects, demonstrating my expertise in Python programming. From web development and data analysis to machine learning and automation, I bring a diverse range of skills to the table. Connect with me to discuss collaboration opportunities or seek guidance on your Python projects.">
-    <meta property="og:image" content="https://drive.google.com/uc?export=view&id=1mhlg8P9WhmRwIk_kJbYS6IYxDT926IEy">
-    <link rel="icon" href=".\website_files\icon.png">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <link rel="stylesheet" href="./website_files/main.css">
+:root {
+  --bg:       #0a0f1a;
+  --bg-side:  #0d1425;
+  --text:     #ccd6f6;
+  --muted:    #8892b0;
+  --accent:   #64ffda;
+  --accent2:  #57cbbd;
+  --border:   #1e2d40;
+  --hover-bg: rgba(100, 255, 218, 0.05);
+  --font:     'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --mono:     'SFMono-Regular', 'Fira Code', 'Fira Mono', Consolas, monospace;
+  --radius:   6px;
+  --sidebar:  280px;
+  --transition: 0.2s ease;
+}
 
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+a:hover { color: var(--accent2); }
+
+/* ─── LAYOUT ─────────────────────────────────────────────── */
+.layout {
+  display: flex;
+  min-height: 100vh;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ─── SIDEBAR ─────────────────────────────────────────────── */
+.sidebar {
+  width: var(--sidebar);
+  flex-shrink: 0;
+  background: var(--bg-side);
+  border-right: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.sidebar-inner {
+  display: flex;
+  flex-direction: column;
+  padding: 52px 32px 40px;
+  height: 100%;
+}
+
+.name {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.3px;
+  line-height: 1.25;
+}
+
+.role {
+  font-size: 13px;
+  color: var(--accent);
+  font-family: var(--mono);
+  margin-top: 6px;
+  letter-spacing: 0.3px;
+}
+
+.tagline {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 14px;
+  line-height: 1.6;
+}
+
+.sidebar-nav {
+  margin-top: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sidebar-nav a {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 6px 0 6px 12px;
+  border-left: 2px solid transparent;
+  transition: all var(--transition);
+}
+
+.sidebar-nav a:hover,
+.sidebar-nav a.active {
+  color: var(--accent);
+  border-left-color: var(--accent);
+}
+
+.contact-links {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 48px;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 13px;
+  transition: color var(--transition);
+}
+
+.contact-link:hover { color: var(--accent); }
+
+.contact-link svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  fill: currentColor;
+}
+
+.print-btn {
+  margin-top: 24px;
+  padding: 9px 0;
+  background: transparent;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background var(--transition);
+  width: 100%;
+}
+
+.print-btn:hover { background: var(--hover-bg); }
+
+/* ─── MAIN CONTENT ────────────────────────────────────────── */
+.content {
+  flex: 1;
+  padding: 52px 56px 80px;
+  min-width: 0;
+}
+
+section { margin-bottom: 72px; }
+
+.section-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-label::after {
+  content: '';
+  display: block;
+  height: 1px;
+  flex: 1;
+  background: var(--border);
+}
+
+/* ─── ABOUT ───────────────────────────────────────────────── */
+.about-text {
+  color: var(--muted);
+  max-width: 580px;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.about-text p + p { margin-top: 14px; }
+
+.about-text strong { color: var(--text); }
+
+/* ─── EXPERIENCE ──────────────────────────────────────────── */
+.exp-entry {
+  padding: 20px;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  transition: background var(--transition), border-color var(--transition);
+  margin-bottom: 4px;
+}
+
+.exp-entry:hover {
+  background: var(--hover-bg);
+  border-color: var(--border);
+}
+
+.exp-header { margin-bottom: 10px; }
+
+.exp-dates {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.exp-role {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+  margin-top: 4px;
+}
+
+.exp-role .company {
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.exp-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent);
+  background: rgba(100, 255, 218, 0.08);
+  border: 1px solid rgba(100, 255, 218, 0.2);
+  border-radius: 3px;
+  padding: 2px 7px;
+}
+
+.exp-bullets {
+  margin-top: 14px;
+  padding-left: 16px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.75;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.exp-bullets li::marker { color: var(--accent); }
+
+.exp-bullets strong { color: var(--text); }
+
+/* ─── PROJECTS ────────────────────────────────────────────── */
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.project-card {
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: background var(--transition), border-color var(--transition), transform var(--transition);
+}
+
+.project-card:hover {
+  background: var(--hover-bg);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.project-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.project-name a { color: var(--text); }
+.project-name a:hover { color: var(--accent); }
+
+.project-icon {
+  width: 15px;
+  height: 15px;
+  fill: var(--muted);
+}
+
+.project-desc {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 8px;
+  line-height: 1.65;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 14px;
+}
+
+/* ─── SKILLS ──────────────────────────────────────────────── */
+.skills-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.skill-group {
+  display: flex;
+  gap: 16px;
+}
+
+.skill-group-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  color: var(--muted);
+  width: 120px;
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* ─── EDUCATION / CERTS ───────────────────────────────────── */
+.misc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.misc-section h3 {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+
+.edu-entry { margin-bottom: 16px; }
+
+.edu-degree {
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.edu-school {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 2px;
+}
+
+.edu-detail {
+  color: var(--muted);
+  font-size: 13px;
+  font-style: italic;
+}
+
+.cert-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cert-list li {
+  font-size: 13px;
+  color: var(--muted);
+  padding-left: 14px;
+  position: relative;
+}
+
+.cert-list li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
+.lang-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.lang-list li {
+  font-size: 13px;
+  color: var(--muted);
+  display: flex;
+  justify-content: space-between;
+}
+
+.lang-level {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 0.5px;
+}
+
+/* ─── PRINT-ONLY HEADER ───────────────────────────────────── */
+.print-header { display: none; }
+
+/* ─── PRINT ───────────────────────────────────────────────── */
+@media print {
+  :root {
+    --bg: #fff;
+    --bg-side: #fff;
+    --text: #111;
+    --muted: #444;
+    --accent: #0a6f5a;
+    --border: #ddd;
+    --hover-bg: transparent;
+  }
+
+  html { font-size: 13px; }
+
+  body {
+    background: white;
+    color: #111;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .sidebar { display: none; }
+
+  .layout { max-width: 100%; }
+
+  .content { padding: 0; }
+
+  .print-header {
+    display: block;
+    margin-bottom: 28px;
+    border-bottom: 2px solid #111;
+    padding-bottom: 14px;
+  }
+
+  .print-header h1 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #111;
+  }
+
+  .print-header .print-role {
+    font-size: 13px;
+    color: #444;
+    margin-top: 2px;
+  }
+
+  .print-header .print-contact {
+    font-size: 11px;
+    color: #444;
+    margin-top: 8px;
+    font-family: var(--mono);
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  section { margin-bottom: 28px; }
+
+  .section-label { color: #0a6f5a; }
+
+  .exp-entry {
+    padding: 10px 0;
+    border: none;
+    margin-bottom: 0;
+    page-break-inside: avoid;
+  }
+
+  .exp-entry:hover { background: none; border: none; }
+
+  .projects-grid { grid-template-columns: 1fr 1fr; }
+
+  .project-card {
+    border-color: #ddd;
+    page-break-inside: avoid;
+  }
+
+  .project-card:hover {
+    background: none;
+    transform: none;
+    border-color: #ddd;
+  }
+
+  .misc-grid { gap: 24px; }
+
+  .tag { border-color: #ccc; background: transparent; }
+
+  a { color: #0a6f5a; }
+}
+
+/* ─── RESPONSIVE ──────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .layout { flex-direction: column; }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: static;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .sidebar-inner {
+    padding: 32px 24px 28px;
+  }
+
+  .sidebar-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0;
+    margin-top: 24px;
+  }
+
+  .sidebar-nav a { padding: 6px 14px 6px 0; border-left: none; }
+
+  .contact-links { flex-direction: row; flex-wrap: wrap; padding-top: 24px; gap: 16px; }
+
+  .print-btn { display: none; }
+
+  .content { padding: 36px 24px 60px; }
+
+  .projects-grid { grid-template-columns: 1fr; }
+
+  .misc-grid { grid-template-columns: 1fr; gap: 32px; }
+
+  .skill-group { flex-direction: column; gap: 6px; }
+  .skill-group-label { width: auto; }
+}
+</style>
 </head>
-<body class="">
+<body>
 
-<!-- Wrapper -->
-<div id="wrapper">
+<div class="layout">
 
-    <!-- Intro -->
-    <section class="intro">
-        <nav class="navbar fixed-top navbar-expand-xl">
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#first">Bio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#skills">Skills</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#projects">Projects</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-inner">
 
-        <header>
-            <h1>Hi, I am&nbsp;<br>Chris</h1>
-            <p>Check out my bio<br><br></p>
-            <ul class="actions">
-                <li><a href="#first" class="arrow"><span class="label">Next</span></a></li>
-            </ul>
-        </header>
-        <div class="content">
-            <span class="image fill" data-position="center"><img src="./website_files/images/pic01.jpeg"
-                                                                 alt="my-profile-photo"></span>
-        </div>
+      <div>
+        <h1 class="name">Krzysztof<br>Brudnowski</h1>
+        <p class="role">Software / Data Engineer</p>
+        <p class="tagline">Building data platforms and AI systems that run in production.</p>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Page sections">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#more">Education</a>
+      </nav>
+
+      <div class="contact-links">
+        <a href="https://github.com/kbrudnowski" class="contact-link" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
+          /kbrudnowski
+        </a>
+        <a href="mailto:krzysztof.brudnowski@gmail.com" class="contact-link">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          krzysztof.brudnowski@gmail.com
+        </a>
+        <a href="tel:+48608534030" class="contact-link">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          +48 608 53 40 30
+        </a>
+        <span class="contact-link" style="cursor:default">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Gdańsk, Poland
+        </span>
+      </div>
+
+      <button class="print-btn" onclick="window.print()">↓ Download PDF</button>
+
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="content">
+
+    <!-- Print-only header (hidden on screen) -->
+    <div class="print-header" aria-hidden="true">
+      <h1>Krzysztof Brudnowski</h1>
+      <p class="print-role">Senior Software / Data Engineer</p>
+      <div class="print-contact">
+        <span>krzysztof.brudnowski@gmail.com</span>
+        <span>+48 608 53 40 30</span>
+        <span>github.com/kbrudnowski</span>
+        <span>kbrudnowski.github.io</span>
+        <span>Gdańsk, Poland</span>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <p class="section-label">About</p>
+      <div class="about-text">
+        <p>Senior software and data engineer with <strong>5+ years</strong> building production data pipelines, backend services, and autonomous AI-agent systems in Python. Strong across the modern data stack (dbt, Airflow, BigQuery), software engineering practices (Terraform/IaC, CI/CD, TDD), and LLM application development.</p>
+        <p>Write Python in core application code, not just pipelines. Proven record of automating business processes, cutting infrastructure cost, and translating finance and business requirements into tested, version-controlled systems. Champion AI-assisted development — sharing reusable conventions and tooling that lift team velocity.</p>
+      </div>
     </section>
 
-    <!-- Section -->
-    <section id="first">
-        <header>
-            <h2>Little about me</h2>
-        </header>
-        <div class="content">
-            <p>Passionate about the intersection of <strong>finance, machine learning, and development</strong>, I am an
-                experienced developer with a keen interest in leveraging data analysis and statistics to drive informed
-                financial decisions. Continuously driven by a desire to learn and grow, I constantly strive for the most
-                optimal solutions in my work.</p>
-            <p>In my leisure time, I love to explore new destinations, immersing myself in different cultures and
-                languages. I find joy in engaging in various physical activities, such as playing football and squash,
-                as well as maintaining a healthy lifestyle through regular gym sessions.</p>
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <p class="section-label">Experience</p>
 
+      <div class="exp-entry">
+        <div class="exp-header">
+          <p class="exp-dates">Jan 2026 — Present</p>
+          <h2 class="exp-role">Data Engineer <span class="company">· Booksy</span></h2>
+          <div class="exp-tags">
+            <span class="tag">dbt</span><span class="tag">BigQuery</span><span class="tag">GCP</span><span class="tag">Airflow</span><span class="tag">Terraform</span><span class="tag">Python</span><span class="tag">SQL</span>
+          </div>
         </div>
+        <ul class="exp-bullets">
+          <li>Build and maintain production data pipelines on GCP (BigQuery + Airflow) as part of the data engineering team, supporting a marketplace with <strong>260M+ annual bookings</strong> across 5 markets.</li>
+          <li>Designed dbt models for SaaS revenue recognition aligned with <strong>GAAP / ASC 606</strong>, partnering with Finance to turn accounting requirements into tested, version-controlled SQL; outputs feed audit-ready monthly reporting.</li>
+          <li><strong>Drove dbt test coverage from ~22% to ~97%</strong> across the production model catalogue — 10 to 144 models with tests, over 1,500 assertions added.</li>
+          <li>Contributed to a pipeline efficiency push that reduced BigQuery compute costs <strong>~98%</strong> in steady state and cut dbt prod runtime <strong>~97%</strong>.</li>
+          <li>Managed GCP infrastructure as code with Terraform across <strong>3 environments</strong> (dev, prod, sandbox); added CI checks to catch issues before release.</li>
+          <li>Author and maintain shared coding conventions and Claude Code skills for the team; run workshops that improve code quality and delivery velocity.</li>
+        </ul>
+      </div>
+
+      <div class="exp-entry">
+        <div class="exp-header">
+          <p class="exp-dates">Oct 2023 — Dec 2025</p>
+          <h2 class="exp-role">Software Engineer (Python / AI) <span class="company">· Morele.net</span></h2>
+          <div class="exp-tags">
+            <span class="tag">Python</span><span class="tag">LLM / Claude API</span><span class="tag">Selenium</span><span class="tag">SQL</span><span class="tag">Jenkins</span><span class="tag">GitLab CI</span>
+          </div>
+        </div>
+        <ul class="exp-bullets">
+          <li>Built autonomous AI agents (Claude / LLM-based) automating business and customer-service workflows; <strong>automated 70%+ of complaint resolution</strong> across ~5,000 weekly cases, cutting operational costs ~20%.</li>
+          <li>Designed reusable agent "skills" that execute end-to-end tasks — including one driving a live Selenium browser for autonomous website integrations and scraping.</li>
+          <li>Built an internal platform that lets non-technical staff configure, deploy, and monitor <strong>300+ production bots</strong>; used daily by 10 senior staff.</li>
+        </ul>
+      </div>
+
+      <div class="exp-entry">
+        <div class="exp-header">
+          <p class="exp-dates">Jun 2022 — Oct 2023</p>
+          <h2 class="exp-role">Data Analyst → Data Engineer <span class="company">· Occubee</span></h2>
+          <div class="exp-tags">
+            <span class="tag">PySpark</span><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Azure AKS</span><span class="tag">Docker</span><span class="tag">NiFi</span>
+          </div>
+        </div>
+        <ul class="exp-bullets">
+          <li>Built and maintained PySpark pipelines processing POS and receipt data for <strong>~500k SKUs per client</strong>, forecasted and ordered daily or weekly with compute and cost optimised to business needs.</li>
+          <li>Onboarded retail clients onto Occubee's AI-driven replenishment and allocation platform; one client (Komfort) released <strong>~PLN 4M in capital</strong> previously frozen in excess inventory while growing revenue.</li>
+          <li>Contributed to the fashion-industry forecasting solution at VRG and Kazar — model-colour-size demand allocation across store networks.</li>
+          <li>Proposed and shipped new features that improved forecasting and replenishment accuracy.</li>
+        </ul>
+      </div>
+
+      <div class="exp-entry">
+        <div class="exp-header">
+          <p class="exp-dates">May 2020 — May 2023</p>
+          <h2 class="exp-role">Python Developer <span class="company">· Freelance</span></h2>
+          <div class="exp-tags">
+            <span class="tag">Python</span><span class="tag">scikit-learn</span><span class="tag">Django</span><span class="tag">REST</span><span class="tag">Selenium</span><span class="tag">JavaScript</span>
+          </div>
+        </div>
+        <ul class="exp-bullets">
+          <li>Designed and shipped end-to-end ML applications (e.g. stock-price prediction): Selenium data collection, feature engineering, model training, and deployment behind Django/REST APIs with JavaScript front-ends.</li>
+          <li>Built invoicing automation that auto-generates hundreds of correction documents daily, replacing a fully manual workflow and <strong>saving ~4 hours of operator work daily</strong>.</li>
+        </ul>
+      </div>
+
+      <div class="exp-entry">
+        <div class="exp-header">
+          <p class="exp-dates">May 2021 — Jun 2022</p>
+          <h2 class="exp-role">Analyst → Process Automation <span class="company">· PwC (Financial Crime Unit)</span></h2>
+          <div class="exp-tags">
+            <span class="tag">Python</span><span class="tag">AML / KYC</span><span class="tag">Process automation</span>
+          </div>
+        </div>
+        <ul class="exp-bullets">
+          <li>Began as an AML/KYC analyst running financial-crime checks and data validation procedures.</li>
+          <li>Transitioned to the process improvement team: delivered Python automations that replaced manual data ingestion workflows for analysts — moving from spreadsheet-driven data collection to automated pipelines and boosting team throughput.</li>
+        </ul>
+      </div>
     </section>
 
-    <!-- Section -->
-    <section id="skills">
-        <header>
-            <h2>skills</h2>
-        </header>
-        <div class="content">
-            <p><strong>App Development</strong> <i class="icon fa-solid fa-laptop-code" style="color: #000000;"></i></p>
-            <p>Skilled in crafting robust and efficient code, I have a deep understanding of Python's syntax and
-                libraries, allowing me to build dynamic and responsive web applications. Successfully developed and
-                deployed web projects, implementing intuitive user interfaces and seamless functionality. </p>
-            <p>My expertise extends to automation, where I have created scripts and tools to streamline repetitive
-                tasks, improving efficiency and productivity.</p>
-            <p>Continuously staying updated with the latest industry trends, I am committed to delivering high-quality,
-                scalable solutions that drive positive user experiences.</p>
-            <div class="container">
-                <ul class="horizontal-list">
-                    <li class="first_element"><i class="fa-solid fa-diamond fa-2xs" style="color: #000000;"></i> Django
-                    </li>
-                    <li><i class="fa-solid fa-diamond fa-2xs" style="color: #000000;"></i> Flask</li>
-                    <li><i class="fa-solid fa-diamond fa-2xs" style="color: #000000;"></i> REST API</li>
-                    <li><i class="fa-solid fa-diamond fa-2xs" style="color: #000000;"></i> JavaScript</li>
-                    <li><i class="fa-solid fa-diamond fa-2xs" style="color: #000000;"></i> Bootstrap</li>
-                </ul>
-            </div>
-            <br>
-            <p><strong>Business and Data Analysis</strong> <i class="fa-solid fa-magnifying-glass-chart"
-                                                              style="color: #000000;"></i></p>
-            <p>As a Business and Data Analyst, I bring a comprehensive skill set to the table. With expertise in Python,
-                I ensure data clearance and accuracy by manipulating and analyzing large datasets. My knowledge of
-                relational databases allows me to efficiently organize and manage data, extracting relevant information
-                and ensuring data integrity. Additionally, my proficiency in Excel empowers me to perform advanced data
-                analysis, create insightful visualizations, and generate meaningful reports.</p>
-            <p>I am highly skilled in SQL, enabling me to retrieve and manipulate data from databases, connecting
-                various data sources for comprehensive analysis. My robust analysis skills allow me to dive deep into
-                datasets, uncovering patterns, trends, and valuable insights. With a keen eye for detail, I can identify
-                meaningful correlations within data, driving informed decision-making within a business context. </p>
-            <div class="container">
-                <ul class="horizontal-list">
-                    <li class="first_element"><i class="fa-solid fa-diamond fa-2xs" style="color: #000000;"></i> Pandas
-                    </li>
-                    <li><i class="fa-solid fa-diamond fa-2xs" style="color: #000000;"></i> Numpy</li>
-                    <li><i class="fa-solid fa-diamond fa-2xs" style="color: #000000;"></i> Plotly</li>
-                    <li><i class="fa-solid fa-diamond fa-2xs" style="color: #000000;"></i> SQL</li>
-                    <li><i class="fa-solid fa-diamond fa-2xs" style="color: #000000;"></i> Excel</li>
-                    <li><i class="fa-solid fa-diamond fa-2xs" style="color: #000000;"></i> Tableau</li>
-                </ul>
-            </div>
-            <br>
-            <p><strong>Data Science</strong> <i class="fa-solid fa-atom" style="color: #000000;"></i></p>
-            <p>My expertise lies in applying machine learning techniques to extract meaningful insights from complex
-                datasets. With a solid foundation in econometrics, I possess a deep understanding of statistical
-                modeling, allowing me to develop robust predictive models and make informed business decisions.</p>
-            <p>Leveraging Python libraries such as scikit-learn, I can efficiently preprocess data, select appropriate
-                features, and apply a wide range of algorithms to tackle diverse data science tasks.</p>
-            <p>My background in econometrics and statistics gives me a unique advantage in the field of data science. I
-                possess a solid understanding of foundational concepts such as hypothesis testing, statistical
-                inference, and regression analysis. This knowledge enables me to critically assess model performance,
-                interpret results, and validate findings.</p>
-
-        </div>
-    </section>
-
-    <!-- Section -->
+    <!-- PROJECTS -->
     <section id="projects">
-        <header>
-            <h2>projects</h2>
-        </header>
-        <div class="content">
-            <p>Each project listed here represents a unique journey, a problem solved, or an innovative idea brought to
-                life. Whether you're interested in web development, data analysis, artificial intelligence, or
-                automation, you'll find a range of projects that demonstrate my versatility and adaptability.</p>
+      <p class="section-label">Projects</p>
+      <div class="projects-grid">
 
-            <!-- Section -->
-            <section>
-                <header>
-                    <a href="https://github.com/kbrudnowski/Color-palette-generator" target="_blank"><h3>color palette generator</h3>
-                    </a>
-                    <p>The Color Palette Generator is a sophisticated web application that tailored for
-                        designers, artists, and tech enthusiasts, it simplifies the complex task of extracting and
-                        visualizing intricate color details within digital images. Leveraging advanced algorithms, users
-                        can effortlessly upload images, triggering an analysis that generates precise and
-                        visually pleasing color palettes with a single click.</p>
-                    <p>The project's sleek, rainbow-themed user interface offers both an intuitive user experience and
-                        an aesthetically pleasing backdrop for creativity. Its responsive design ensures accessibility
-                        across various devices, making it an asset for professionals and enthusiasts alike. The Color
-                        Palette Generator showcases my technical expertise and design sensibilities, highlighting the
-                        ability to create powerful, user-friendly tools that inspire and elevate creative projects.</p>
-
-                </header>
-                <div class="content">
-                    <div class="gallery">
-                        <a class="landscape" href="./website_files/images/color-palette-1.png"><img
-                                src="./website_files/images/color-palette-1.png" alt="Website screenshot"></a>
-                        <a class="portrait" href="./website_files/images/color-palette-2.png"><img
-                                src="./website_files/images/color-palette-2.png" alt="Website screenshot"></a>
-                        <a class="portrait" href="./website_files/images/color-palette-3.png"><img
-                                src="./website_files/images/color-palette-3.png" alt="Website screenshot"></a>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Section -->
-            <section>
-                <header>
-                    <a href="https://github.com/kbrudnowski/3city_cafe_wifi" target="_blank"><h3>3 City Cafe & WiFi</h3>
-                    </a>
-                    <p>The Tri-City Cafes with WiFi <a href="https://kbrudnowsk.pythonanywhere.com/" target="_blank">web
-                        app</a> is a django-built comprehensive platform designed to assist users in discovering cafes
-                        with WiFi access in the Tri-City area of Poland.</p>
-                    <p>One of the standout features of the web app is the ability for logged-in users to contribute to
-                        the community by adding new cafes to the list. By allowing users to share their knowledge and
-                        experiences, the app ensures that the list remains comprehensive and up to date. Additionally,
-                        staff-users can also delete existing cafes.</p>
-                </header>
-                <div class="content">
-                    <div class="gallery">
-                        <a class="landscape" href="./website_files/images/tricitycafe_home.png"><img
-                                src="./website_files/images/tricitycafe_home.png" alt="Website screenshot"></a>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Section -->
-            <section>
-                <header>
-                    <a href="https://github.com/kbrudnowski/EBITDA-scrapper" target="_blank"><h3>Financial Data
-                        Scrapper</h3></a>
-                    <p>An automated EBITDA calculator that unveils hidden financial insights for companies listed in the
-                        esteemed WIG20 index. Despite the EBITDA metric being available only to premium users, my
-                        in-depth knowledge of financial calculations enabled me to create a dynamic Python program that
-                        intelligently retrieves other relevant data and accurately calculates EBITDA which may be later
-                        saved in any desired format.</p>
-                </header>
-                <div class="content">
-                    <div class="gallery">
-                        <a class="portrait" href="./website_files/images/ebitda_hidden.png"><img
-                                src="./website_files/images/ebitda_hidden.png" alt="Screenshot with hidden data"></a>
-                        <a class="portrait" href="./website_files/images/ebitda_result.png"><img
-                                src="./website_files/images/ebitda_result.png" alt="Image of calculated outcome"></a>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Section -->
-            <section>
-                <header>
-                    <a href="https://github.com/kbrudnowski/Watermark_er" target="_blank"><h3>Watermark Me</h3></a>
-                    <p>A simple desktop application built with Tkinter that automates the process of adding watermarks
-                        to all your photos. It provides an intuitive interface where you can select an image file,
-                        preview it, apply a customizable watermark, and save the watermarked image.</p>
-                </header>
-                <div class="content">
-                    <div class="gallery">
-                        <a class="landscape" href="./website_files/images/watermark_me_1.png"><img
-                                src="./website_files/images/watermark_me_1.png" alt="Image of GUI"></a>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Section -->
-            <section>
-                <header>
-                    <a href="https://github.com/kbrudnowski/TypeMaster" target="_blank"><h3>TypeMaster</h3></a>
-                    <p> This is a typing speed test application designed to enhance users' typing skills and accuracy.
-                        The app offers a wide range of randomly generated sample texts, ensuring a fresh and challenging
-                        typing experience with every session. Users can test their typing speed by entering the sample
-                        text provided and receive instant feedback on their performance. The application calculates the
-                        user's words per minute (WPM) and highlights any errors, allowing users to identify and correct
-                        mistakes as they type. TypeMaster includes a high score tracking feature that enables users to
-                        monitor their progress and strive for personal improvement. By keeping track of their best WPM
-                        achieved, users can set goals and track their typing speed development over time.</p>
-                </header>
-                <div class="content">
-                    <div class="gallery">
-                        <a class="landscape" href="./website_files/images/TypeMaster_1.png"><img
-                                src="./website_files/images/TypeMaster_1.png"
-                                alt="Image of preprocessed picture and outcome"></a>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Section -->
-            <section>
-                <header>
-                    <a href="https://kbrudnowski.github.io/blank_page/" target="_blank"><h3>Blank Page</h3></a>
-                    <p> This <a href="https://kbrudnowski.github.io/blank_page/" target="_blank">website</a> is a unique
-                        online text editor designed to tackle writer's block. It presents a
-                        blank page with a message encouraging users to keep writing continuously without stopping. The
-                        twist is that if the user pauses for more than 5 seconds, all their progress will be erased. A
-                        timer counts down, and any lack of input triggers the deletion of the written content, making it
-                        an interesting challenge to maintain a continuous flow of writing. The site seems to be a
-                        playful and fun experiment, emphasizing the importance of consistent writing and overcoming
-                        writer's block.</p>
-                </header>
-                <div class="content">
-                    <div class="gallery">
-                        <a class="landscape" href="./website_files/images/blank_page_pic.png"><img
-                                src="./website_files/images/blank_page_pic.png" alt="Website screenshot"></a>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Section -->
-            <section>
-                <header>
-                    <h3>Now-casting Economic
-                        Indicators</h3>
-                    <p>
-                        This project aimed to predict an economic indicator using carefully selected parameters,
-                        employing non-linear machine learning methods to address complex relationships between
-                        variables. I diligently preprocessed the dataset, handling missing values, normalizing data, and
-                        selecting features to ensure optimal model training. By experimenting with various regression
-                        algorithms, including linear regression, ensemble learning, and support vector regression, I
-                        evaluated their performance using the R-squared metric. The most efficient models were
-                        identified. Throughout the project, I utilized Python's popular machine learning libraries,
-                        scikit-learn, and Keras, for model development, evaluation, and fine-tuning.</p>
-                </header>
-                <div class="content">
-                    <div class="gallery">
-                        <a class="landscape" href="./website_files/images/futuristic-finance.png"><img
-                                src="./website_files/images/futuristic-finance.png"
-                                alt="Futuristic digital market graph">
-                            <!--    Image by svstudioart     -->
-                        </a>
-
-                    </div>
-                </div>
-            </section>
-
-            <!-- Section -->
-            <section>
-                <header>
-                    <a href="https://github.com/kbrudnowski/PDF_to_Audio_Summary" target="_blank"><h3>Audio Summary of
-                        PDFs</h3></a>
-                    <p>
-                        Streamlining access to information, the Audio Summary of PDFs project transforms files into
-                        audio formats, fostering accessibility. Developed using Python's tkinter library, this
-                        user-friendly application enables effortless PDF uploads, automated text extraction, and AI
-                        integration. Leveraging PyPDF2 and web scrapping, it generates both full-length audio and
-                        concise summaries. This creation highlights my skills in programming Python GUI design, service
-                        integration and addressing needs with innovation.</p>
-                </header>
-                <div class="content">
-                    <div class="gallery">
-                        <a class="landscape" href="./website_files/images/pdf_2_audio.png"><img
-                                src="./website_files/images/pdf_2_audio.png"
-                                alt="App GUI with upload icon and buttons">
-                        </a>
-
-                    </div>
-                </div>
-            </section>
-
-            <!-- Section -->
-            <section>
-                <header>
-                    <h3>To be continued...</h3>
-                </header>
-
-            </section>
-
+        <div class="project-card">
+          <p class="project-name">
+            <svg class="project-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
+            <a href="https://github.com/kbrudnowski/WedApp" target="_blank" rel="noopener">WedApp</a>
+          </p>
+          <p class="project-desc">Wedding guest media uploader. Guests scan a QR code and upload photos, video, or voice messages straight to a Google Drive folder. Offline-resilient upload queue via IndexedDB; shared gallery with infinite scroll and lightbox; admin panel for moderation. Full Playwright e2e test suite.</p>
+          <div class="project-tags">
+            <span class="tag">Cloudflare Pages</span><span class="tag">D1</span><span class="tag">Hono</span><span class="tag">Google Drive API</span><span class="tag">PWA</span>
+          </div>
         </div>
+
+        <div class="project-card">
+          <p class="project-name">
+            <svg class="project-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h18v18H3V3zm16 16V5H5v14h14zM7 7h4v4H7V7zm6 0h4v2h-4V7zm0 4h4v2h-4v-2zM7 13h10v2H7v-2zm0 4h7v2H7v-2z"/></svg>
+            AI Trading Signals
+          </p>
+          <p class="project-desc">Python system ingesting GPW market data via APIs and web scraping. Applies LLM analysis to generate signals across sentiment, volume, and technical indicators. Being extended to automate trade execution end-to-end.</p>
+          <div class="project-tags">
+            <span class="tag">Python</span><span class="tag">LLM</span><span class="tag">Selenium</span><span class="tag">REST APIs</span><span class="tag">In progress</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <p class="project-name">
+            <svg class="project-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
+            <a href="https://github.com/kbrudnowski/AirQualityDataHandler" target="_blank" rel="noopener">AirQualityDataHandler</a>
+          </p>
+          <p class="project-desc">Serverless GCP pipeline that fetches PM2.5, PM10, O₃, and NO₂ measurements from the OpenAQ API via a Cloud Function, validates them, and writes CSV outputs to Cloud Storage on a schedule.</p>
+          <div class="project-tags">
+            <span class="tag">GCP</span><span class="tag">Cloud Functions</span><span class="tag">Python</span><span class="tag">OpenAQ</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <p class="project-name">
+            <svg class="project-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
+            <a href="https://github.com/kbrudnowski/ebitda-scrapper" target="_blank" rel="noopener">ebitda-scrapper</a>
+          </p>
+          <p class="project-desc">Scrapes EBIT and amortisation figures for WIG20 companies from biznesradar.pl and computes EBITDA — data normally gated behind a premium subscription. Handles compute-cost-optimised fetching, bank exclusions, and numeric coercion.</p>
+          <div class="project-tags">
+            <span class="tag">Python</span><span class="tag">pandas</span><span class="tag">BeautifulSoup</span><span class="tag">Finance</span>
+          </div>
+        </div>
+
+      </div>
     </section>
 
-
-    <!-- Section -->
-    <section>
-        <header>
-            <h2>Get in touch</h2>
-        </header>
-
-        <footer>
-            <ul class="items">
-                <li>
-                    <br>
-                    <h3>By Email</h3>
-                    <a href="mailto:krzysztof.brudnowski@gmail.com">krzysztof.brudnowski@gmail.com</a>
-                </li>
-                <li>
-                    <h3>Elsewhere</h3>
-                    <ul class="icons">
-                        <li><a href="https://www.linkedin.com/in/krzysztof-brudnowski/" target="_blank"
-                               class="icon fa-linkedin"><span
-                                class="label">LinkedIn</span></a></li>
-                        <li><a href="https://github.com/kbrudnowski/" target="_blank" class="icon fa-github"><span
-                                class="label">GitHub</span></a></li>
-                    </ul>
-                </li>
-                <li>
-                    <h3>Location</h3>
-                    <span>Gdańsk Poland</span>
-                </li>
-            </ul>
-        </footer>
+    <!-- SKILLS -->
+    <section id="skills">
+      <p class="section-label">Skills</p>
+      <div class="skills-groups">
+        <div class="skill-group">
+          <span class="skill-group-label">Languages</span>
+          <div class="skill-tags">
+            <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">JavaScript</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <span class="skill-group-label">AI & Agents</span>
+          <div class="skill-tags">
+            <span class="tag">LLM app development</span><span class="tag">Autonomous AI agents</span><span class="tag">Claude API</span><span class="tag">OpenAI API</span><span class="tag">Prompt engineering</span><span class="tag">Selenium</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <span class="skill-group-label">Data Stack</span>
+          <div class="skill-tags">
+            <span class="tag">dbt</span><span class="tag">Apache Airflow</span><span class="tag">PySpark</span><span class="tag">ETL / ELT</span><span class="tag">Data warehousing</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <span class="skill-group-label">Cloud & Infra</span>
+          <div class="skill-tags">
+            <span class="tag">GCP / BigQuery</span><span class="tag">Azure AKS</span><span class="tag">Terraform</span><span class="tag">Docker</span><span class="tag">Cloudflare Pages</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <span class="skill-group-label">Engineering</span>
+          <div class="skill-tags">
+            <span class="tag">CI/CD</span><span class="tag">TDD</span><span class="tag">Git</span><span class="tag">Jenkins</span><span class="tag">GitLab CI</span><span class="tag">Code review</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <span class="skill-group-label">ML</span>
+          <div class="skill-tags">
+            <span class="tag">scikit-learn</span><span class="tag">Feature engineering</span><span class="tag">Model deployment</span>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Copyright -->
-    <div class="copyright">© All rights reserved.</div>
+    <!-- EDUCATION / CERTS / LANGUAGES -->
+    <section id="more">
+      <p class="section-label">Education &amp; More</p>
+      <div class="misc-grid">
 
+        <div class="misc-section">
+          <h3>Education</h3>
+          <div class="edu-entry">
+            <p class="edu-degree">MSc Management of Investments and Real Estate</p>
+            <p class="edu-school">University of Gdańsk · 2022</p>
+            <p class="edu-detail">Erasmus exchanges in Finland and Spain.</p>
+          </div>
+        </div>
+
+        <div class="misc-section">
+          <h3>Certificates</h3>
+          <ul class="cert-list">
+            <li>PCPP1 — Certified Professional Python Programmer (OpenEDG)</li>
+            <li>Python TDD: Test-Driven Development and CI/CD</li>
+            <li>Machine Learning A–Z: Python &amp; R in Data Science</li>
+            <li>100 Days of Code: Python Pro Bootcamp</li>
+            <li>SQL – MySQL for Data Analytics and Business Intelligence</li>
+          </ul>
+        </div>
+
+        <div class="misc-section">
+          <h3>Languages</h3>
+          <ul class="lang-list">
+            <li><span>English</span><span class="lang-level">C1 / C2</span></li>
+            <li><span>Spanish</span><span class="lang-level">B2</span></li>
+            <li><span>Polish</span><span class="lang-level">Native</span></li>
+          </ul>
+        </div>
+
+        <div class="misc-section">
+          <h3>Interests</h3>
+          <ul class="cert-list">
+            <li>Machine learning &amp; applied AI</li>
+            <li>Algorithmic trading &amp; stock markets</li>
+            <li>Football</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
 </div>
 
-<!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-        crossorigin="anonymous"></script>
-<script src="./website_files/jquery.min.js"></script>
-<script src="./website_files/jquery.scrolly.min.js"></script>
-<script src="./website_files/browser.min.js"></script>
-<script src="./website_files/breakpoints.min.js"></script>
-<script src="./website_files/util.js"></script>
-<script src="./website_files/main.js"></script>
-<script src="https://kit.fontawesome.com/e49bd3d7c0.js" crossorigin="anonymous"></script>
+<script>
+(function() {
+  var nav = document.querySelectorAll('.sidebar-nav a');
+  var sections = Array.from(nav).map(function(a) {
+    return document.querySelector(a.getAttribute('href'));
+  });
 
+  function onScroll() {
+    var scrollY = window.scrollY + 120;
+    var active = sections.reduce(function(found, sec) {
+      return sec && sec.offsetTop <= scrollY ? sec : found;
+    }, sections[0]);
+    nav.forEach(function(a) {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + (active && active.id));
+    });
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
 
 </body>
 </html>
