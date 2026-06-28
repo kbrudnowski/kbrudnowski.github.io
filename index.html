@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Krzysztof Brudnowski — Senior Software / Data Engineer</title>
+<title>Krzysztof (Chris) Brudnowski — Senior Software / Data Engineer</title>
 <meta name="description" content="Senior software and data engineer based in Gdańsk. Python, dbt, GCP, LLM agents, data pipelines. 5+ years in production.">
-<meta property="og:title" content="Krzysztof Brudnowski — Senior Software / Data Engineer">
+<meta property="og:title" content="Krzysztof (Chris) Brudnowski — Senior Software / Data Engineer">
 <meta property="og:description" content="Building data platforms and AI systems that run in production.">
 <meta property="og:type" content="website">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230a0f1a'/><text x='6' y='24' font-size='20' fill='%2364ffda' font-family='monospace'>K</text></svg>">
@@ -78,6 +78,14 @@ a:hover { color: var(--accent2); }
   color: var(--text);
   letter-spacing: -0.3px;
   line-height: 1.25;
+}
+
+.name-nick {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--accent);
+  font-family: var(--mono);
+  letter-spacing: 0;
 }
 
 .role {
@@ -158,6 +166,11 @@ a:hover { color: var(--accent2); }
   cursor: pointer;
   transition: background var(--transition);
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
 }
 
 .print-btn:hover { background: var(--hover-bg); }
@@ -314,6 +327,163 @@ section { margin-bottom: 72px; }
   font-size: 13px;
   margin-top: 8px;
   line-height: 1.65;
+}
+
+.project-diagram {
+  margin-top: 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-side);
+  overflow: hidden;
+  line-height: 0;
+  cursor: zoom-in;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.project-diagram:hover,
+.project-diagram:focus-visible {
+  border-color: rgba(100, 255, 218, 0.4);
+  box-shadow: 0 0 0 1px rgba(100, 255, 218, 0.08);
+  outline: none;
+}
+
+.project-diagram svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.project-diagram .d-badge {
+  font-family: var(--mono);
+  font-size: 6.5px;
+  fill: var(--accent);
+  letter-spacing: 0.6px;
+}
+
+.project-diagram .d-node {
+  fill: var(--bg-side);
+  stroke: var(--border);
+  stroke-width: 1;
+}
+
+.project-diagram .d-node-accent {
+  stroke: var(--accent);
+  stroke-opacity: 0.45;
+}
+
+.project-diagram .d-node-highlight {
+  stroke: var(--accent);
+  stroke-opacity: 0.75;
+  fill: rgba(100, 255, 218, 0.06);
+}
+
+.project-diagram .d-label {
+  font-family: var(--mono);
+  font-size: 7.5px;
+  fill: var(--text);
+}
+
+.project-diagram .d-sublabel {
+  font-family: var(--mono);
+  font-size: 6.5px;
+  fill: var(--muted);
+}
+
+.project-diagram .d-edge {
+  stroke: var(--accent);
+  stroke-opacity: 0.45;
+  stroke-width: 1;
+  fill: none;
+}
+
+.project-diagram .d-edge-muted {
+  stroke: var(--muted);
+  stroke-opacity: 0.35;
+  stroke-width: 1;
+  fill: none;
+  stroke-dasharray: 3 2;
+}
+
+.project-diagram .d-arrow {
+  fill: var(--accent);
+  fill-opacity: 0.55;
+}
+
+.diagram-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.diagram-overlay[hidden] {
+  display: none;
+}
+
+.diagram-overlay-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 15, 26, 0.9);
+  border: none;
+  cursor: pointer;
+}
+
+.diagram-lightbox {
+  position: relative;
+  z-index: 1;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 32px 32px;
+  background: var(--bg-side);
+  color: var(--text);
+  max-width: min(860px, 94vw);
+  max-height: 92vh;
+  width: max-content;
+  overflow: auto;
+}
+
+.diagram-lightbox-inner {
+  margin: 0;
+  border: none;
+  background: transparent;
+  cursor: default;
+  pointer-events: none;
+}
+
+.diagram-lightbox-inner:hover,
+.diagram-lightbox-inner:focus-visible {
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.diagram-lightbox-inner svg {
+  width: min(780px, 88vw);
+  height: auto;
+}
+
+.diagram-lightbox-close {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  transition: color var(--transition), border-color var(--transition), background var(--transition);
+}
+
+.diagram-lightbox-close:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--hover-bg);
 }
 
 .project-tags {
@@ -514,11 +684,18 @@ section { margin-bottom: 72px; }
     border-color: #ddd;
   }
 
+  .project-diagram {
+    border-color: #ddd;
+    background: #f8f8f8;
+  }
+
   .misc-grid { gap: 24px; }
 
   .tag { border-color: #ccc; background: transparent; }
 
   a { color: #0a6f5a; }
+
+  .diagram-overlay { display: none !important; }
 }
 
 /* ─── RESPONSIVE ──────────────────────────────────────────── */
@@ -570,7 +747,7 @@ section { margin-bottom: 72px; }
     <div class="sidebar-inner">
 
       <div>
-        <h1 class="name">Krzysztof<br>Brudnowski</h1>
+        <h1 class="name">Krzysztof <span class="name-nick">(Chris)</span><br>Brudnowski</h1>
         <p class="role">Senior Software / Data Engineer</p>
         <p class="tagline">Building data platforms and AI systems that run in production.</p>
       </div>
@@ -612,7 +789,7 @@ section { margin-bottom: 72px; }
 
     <!-- Print-only header (hidden on screen) -->
     <div class="print-header" aria-hidden="true">
-      <h1>Krzysztof Brudnowski</h1>
+      <h1>Krzysztof (Chris) Brudnowski</h1>
       <p class="print-role">Senior Software / Data Engineer</p>
       <div class="print-contact">
         <span>krzysztof.brudnowski@gmail.com</span>
@@ -679,7 +856,7 @@ section { margin-bottom: 72px; }
         <ul class="exp-bullets">
           <li>Built and maintained PySpark pipelines processing POS and receipt data for <strong>~500k SKUs per client</strong>, forecasted and ordered daily or weekly with compute and cost optimised to business needs.</li>
           <li>Onboarded retail clients onto Occubee's AI-driven replenishment and allocation platform; one client released <strong>~PLN 4M in capital</strong> previously frozen in excess inventory while growing revenue.</li>
-          <li>Contributed to the fashion-industry forecasting solution at VRG and Kazar — model-colour-size demand allocation across store networks.</li>
+          <li>Contributed to fashion-industry forecasting for leading retail brands — model-colour-size demand allocation across store networks.</li>
           <li>Proposed and shipped new features that improved forecasting and replenishment accuracy.</li>
         </ul>
       </div>
@@ -724,6 +901,29 @@ section { margin-bottom: 72px; }
             <a href="https://github.com/kbrudnowski/WedApp" target="_blank" rel="noopener">WedApp</a>
           </p>
           <p class="project-desc">Wedding guest media uploader. Guests scan a QR code and upload photos, video, or voice messages straight to a Google Drive folder. Offline-resilient upload queue via IndexedDB; shared gallery with infinite scroll and lightbox; admin panel for moderation. Full Playwright e2e test suite.</p>
+          <figure class="project-diagram" aria-label="WedApp upload pipeline">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 72" role="img" aria-hidden="true">
+              <text x="160" y="11" text-anchor="middle" class="d-badge">CLOUDFLARE PWA · UPLOAD LINEAGE</text>
+              <rect x="4" y="28" width="46" height="20" rx="3" class="d-node"/>
+              <text x="27" y="41" text-anchor="middle" class="d-label">QR scan</text>
+              <line x1="50" y1="38" x2="58" y2="38" class="d-edge"/><polygon points="58,38 54,36 54,40" class="d-arrow"/>
+              <rect x="58" y="28" width="46" height="20" rx="3" class="d-node"/>
+              <text x="81" y="41" text-anchor="middle" class="d-label">capture</text>
+              <line x1="104" y1="38" x2="112" y2="38" class="d-edge"/><polygon points="112,38 108,36 108,40" class="d-arrow"/>
+              <rect x="112" y="28" width="46" height="20" rx="3" class="d-node d-node-highlight"/>
+              <text x="135" y="41" text-anchor="middle" class="d-label">IndexedDB</text>
+              <line x1="158" y1="38" x2="166" y2="38" class="d-edge"/><polygon points="166,38 162,36 162,40" class="d-arrow"/>
+              <rect x="166" y="28" width="46" height="20" rx="3" class="d-node d-node-accent"/>
+              <text x="189" y="41" text-anchor="middle" class="d-label">Hono API</text>
+              <line x1="212" y1="38" x2="220" y2="38" class="d-edge"/><polygon points="220,38 216,36 216,40" class="d-arrow"/>
+              <rect x="220" y="28" width="46" height="20" rx="3" class="d-node"/>
+              <text x="243" y="41" text-anchor="middle" class="d-label">Drive+D1</text>
+              <line x1="266" y1="38" x2="274" y2="38" class="d-edge"/><polygon points="274,38 270,36 270,40" class="d-arrow"/>
+              <rect x="274" y="28" width="42" height="20" rx="3" class="d-node d-node-accent"/>
+              <text x="295" y="41" text-anchor="middle" class="d-label">gallery</text>
+              <text x="160" y="64" text-anchor="middle" class="d-sublabel">offline queue resumes on reconnect · admin moderates via token</text>
+            </svg>
+          </figure>
           <div class="project-tags">
             <span class="tag">Cloudflare Pages</span><span class="tag">D1</span><span class="tag">Hono</span><span class="tag">Google Drive API</span><span class="tag">PWA</span>
           </div>
@@ -735,6 +935,41 @@ section { margin-bottom: 72px; }
             <a href="https://github.com/kbrudnowski/ai-trading-signals" target="_blank" rel="noopener">AI Trading Signals</a>
           </p>
           <p class="project-desc">Python system ingesting GPW market data via APIs and Selenium scrapers. Signal generation pipeline runs as a LangGraph StateGraph — fetch, compute indicators, evaluate rules, LLM analysis, dispatch — with configurable provider (Ollama, OpenAI, Anthropic) and broker (paper or XTB). Being extended to automate trade execution end-to-end.</p>
+          <figure class="project-diagram" aria-label="LangGraph StateGraph pipeline">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 108" role="img" aria-hidden="true">
+              <text x="160" y="11" text-anchor="middle" class="d-badge">LANGGRAPH STATEGRAPH · TRADINGSTATE</text>
+              <rect x="4" y="24" width="44" height="20" rx="3" class="d-node"/>
+              <text x="26" y="37" text-anchor="middle" class="d-label">universe</text>
+              <line x1="48" y1="34" x2="54" y2="34" class="d-edge"/><polygon points="54,34 50,32 50,36" class="d-arrow"/>
+              <rect x="54" y="24" width="44" height="20" rx="3" class="d-node"/>
+              <text x="76" y="37" text-anchor="middle" class="d-label">data</text>
+              <line x1="98" y1="34" x2="104" y2="34" class="d-edge"/><polygon points="104,34 100,32 100,36" class="d-arrow"/>
+              <rect x="104" y="24" width="44" height="20" rx="3" class="d-node"/>
+              <text x="126" y="37" text-anchor="middle" class="d-label">ratings</text>
+              <line x1="148" y1="34" x2="154" y2="34" class="d-edge"/><polygon points="154,34 150,32 150,36" class="d-arrow"/>
+              <rect x="154" y="24" width="44" height="20" rx="3" class="d-node"/>
+              <text x="176" y="37" text-anchor="middle" class="d-label">features</text>
+              <line x1="198" y1="34" x2="204" y2="34" class="d-edge"/><polygon points="204,34 200,32 200,36" class="d-arrow"/>
+              <rect x="204" y="24" width="44" height="20" rx="3" class="d-node d-node-accent"/>
+              <text x="226" y="37" text-anchor="middle" class="d-label">rules</text>
+              <line x1="226" y1="44" x2="226" y2="52" class="d-edge-muted"/>
+              <line x1="226" y1="52" x2="168" y2="52" class="d-edge-muted"/>
+              <line x1="168" y1="52" x2="168" y2="58" class="d-edge-muted"/>
+              <text x="198" y="50" text-anchor="middle" class="d-sublabel">no candidates</text>
+              <rect x="144" y="58" width="48" height="18" rx="3" class="d-node"/>
+              <text x="168" y="70" text-anchor="middle" class="d-sublabel">END</text>
+              <line x1="248" y1="34" x2="254" y2="34" class="d-edge"/><polygon points="254,34 250,32 250,36" class="d-arrow"/>
+              <text x="251" y="20" text-anchor="middle" class="d-sublabel">candidates</text>
+              <rect x="254" y="24" width="62" height="20" rx="3" class="d-node d-node-highlight"/>
+              <text x="285" y="37" text-anchor="middle" class="d-label">LLM analyze</text>
+              <line x1="285" y1="44" x2="285" y2="82" class="d-edge"/>
+              <line x1="285" y1="82" x2="160" y2="82" class="d-edge"/>
+              <polygon points="160,82 164,80 164,84" class="d-arrow"/>
+              <rect x="118" y="72" width="84" height="20" rx="3" class="d-node d-node-accent"/>
+              <text x="160" y="85" text-anchor="middle" class="d-label">dispatch</text>
+              <text x="160" y="102" text-anchor="middle" class="d-sublabel">Telegram alerts · paper or XTB broker</text>
+            </svg>
+          </figure>
           <div class="project-tags">
             <span class="tag">Python</span><span class="tag">LangGraph</span><span class="tag">LangChain</span><span class="tag">LLM</span><span class="tag">Selenium</span><span class="tag">Pydantic</span>
           </div>
@@ -746,6 +981,29 @@ section { margin-bottom: 72px; }
             <a href="https://github.com/kbrudnowski/AirQualityDataHandler" target="_blank" rel="noopener">AirQualityDataHandler</a>
           </p>
           <p class="project-desc">Serverless GCP pipeline that fetches PM2.5, PM10, O₃, and NO₂ measurements from the OpenAQ API via a Cloud Function, validates them, and writes CSV outputs to Cloud Storage on a schedule.</p>
+          <figure class="project-diagram" aria-label="Air quality data pipeline">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 72" role="img" aria-hidden="true">
+              <text x="160" y="11" text-anchor="middle" class="d-badge">GCP CLOUD FUNCTION · SCHEDULED</text>
+              <rect x="4" y="28" width="46" height="20" rx="3" class="d-node"/>
+              <text x="27" y="41" text-anchor="middle" class="d-label">trigger</text>
+              <line x1="50" y1="38" x2="58" y2="38" class="d-edge"/><polygon points="58,38 54,36 54,40" class="d-arrow"/>
+              <rect x="58" y="28" width="46" height="20" rx="3" class="d-node"/>
+              <text x="81" y="41" text-anchor="middle" class="d-label">geocode</text>
+              <line x1="104" y1="38" x2="112" y2="38" class="d-edge"/><polygon points="112,38 108,36 108,40" class="d-arrow"/>
+              <rect x="112" y="28" width="46" height="20" rx="3" class="d-node d-node-highlight"/>
+              <text x="135" y="41" text-anchor="middle" class="d-label">OpenAQ</text>
+              <line x1="158" y1="38" x2="166" y2="38" class="d-edge"/><polygon points="166,38 162,36 162,40" class="d-arrow"/>
+              <rect x="166" y="28" width="46" height="20" rx="3" class="d-node d-node-accent"/>
+              <text x="189" y="41" text-anchor="middle" class="d-label">validate</text>
+              <line x1="212" y1="38" x2="220" y2="38" class="d-edge"/><polygon points="220,38 216,36 216,40" class="d-arrow"/>
+              <rect x="220" y="28" width="46" height="20" rx="3" class="d-node"/>
+              <text x="243" y="41" text-anchor="middle" class="d-label">CSV</text>
+              <line x1="266" y1="38" x2="274" y2="38" class="d-edge"/><polygon points="274,38 270,36 270,40" class="d-arrow"/>
+              <rect x="274" y="28" width="42" height="20" rx="3" class="d-node d-node-accent"/>
+              <text x="295" y="41" text-anchor="middle" class="d-label">GCS</text>
+              <text x="160" y="64" text-anchor="middle" class="d-sublabel">PM2.5 · PM10 · O₃ · NO₂ per city and station</text>
+            </svg>
+          </figure>
           <div class="project-tags">
             <span class="tag">GCP</span><span class="tag">Cloud Functions</span><span class="tag">Python</span><span class="tag">OpenAQ</span>
           </div>
@@ -757,6 +1015,29 @@ section { margin-bottom: 72px; }
             <a href="https://github.com/kbrudnowski/ebitda-scrapper" target="_blank" rel="noopener">ebitda-scrapper</a>
           </p>
           <p class="project-desc">Scrapes EBIT and amortisation figures for WIG20 companies from biznesradar.pl and computes EBITDA — data normally gated behind a premium subscription. Handles compute-cost-optimised fetching, bank exclusions, and numeric coercion.</p>
+          <figure class="project-diagram" aria-label="EBITDA scraper pipeline">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 72" role="img" aria-hidden="true">
+              <text x="160" y="11" text-anchor="middle" class="d-badge">PYTHON BATCH · WIG20 LINEAGE</text>
+              <rect x="4" y="28" width="46" height="20" rx="3" class="d-node"/>
+              <text x="27" y="41" text-anchor="middle" class="d-label">WIG20</text>
+              <line x1="50" y1="38" x2="58" y2="38" class="d-edge"/><polygon points="58,38 54,36 54,40" class="d-arrow"/>
+              <rect x="58" y="28" width="46" height="20" rx="3" class="d-node d-node-accent"/>
+              <text x="81" y="41" text-anchor="middle" class="d-label">filter</text>
+              <line x1="104" y1="38" x2="112" y2="38" class="d-edge"/><polygon points="112,38 108,36 108,40" class="d-arrow"/>
+              <rect x="112" y="28" width="46" height="20" rx="3" class="d-node d-node-highlight"/>
+              <text x="135" y="41" text-anchor="middle" class="d-label">scrape</text>
+              <line x1="158" y1="38" x2="166" y2="38" class="d-edge"/><polygon points="166,38 162,36 162,40" class="d-arrow"/>
+              <rect x="166" y="28" width="46" height="20" rx="3" class="d-node"/>
+              <text x="189" y="41" text-anchor="middle" class="d-label">parse</text>
+              <line x1="212" y1="38" x2="220" y2="38" class="d-edge"/><polygon points="220,38 216,36 216,40" class="d-arrow"/>
+              <rect x="220" y="28" width="46" height="20" rx="3" class="d-node"/>
+              <text x="243" y="41" text-anchor="middle" class="d-label">EBITDA</text>
+              <line x1="266" y1="38" x2="274" y2="38" class="d-edge"/><polygon points="274,38 270,36 270,40" class="d-arrow"/>
+              <rect x="274" y="28" width="42" height="20" rx="3" class="d-node d-node-accent"/>
+              <text x="295" y="41" text-anchor="middle" class="d-label">pandas</text>
+              <text x="160" y="64" text-anchor="middle" class="d-sublabel">banks excluded · EBIT + amortisation from public pages</text>
+            </svg>
+          </figure>
           <div class="project-tags">
             <span class="tag">Python</span><span class="tag">pandas</span><span class="tag">BeautifulSoup</span><span class="tag">Finance</span>
           </div>
@@ -857,6 +1138,14 @@ section { margin-bottom: 72px; }
   </main>
 </div>
 
+<div class="diagram-overlay" id="diagram-overlay" hidden>
+  <button type="button" class="diagram-overlay-backdrop" aria-label="Close"></button>
+  <div class="diagram-lightbox" role="dialog" aria-modal="true" aria-label="Expanded pipeline diagram">
+    <button type="button" class="diagram-lightbox-close" aria-label="Close">&times;</button>
+    <figure class="project-diagram diagram-lightbox-inner"></figure>
+  </div>
+</div>
+
 <script>
 (function() {
   var nav = document.querySelectorAll('.sidebar-nav a');
@@ -876,6 +1165,86 @@ section { margin-bottom: 72px; }
 
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
+})();
+
+(function() {
+  var overlay = document.getElementById('diagram-overlay');
+  if (!overlay) return;
+
+  var inner = overlay.querySelector('.diagram-lightbox-inner');
+  var closeBtn = overlay.querySelector('.diagram-lightbox-close');
+  var backdrop = overlay.querySelector('.diagram-overlay-backdrop');
+  var savedScrollY = 0;
+
+  function lockScroll() {
+    savedScrollY = window.scrollY;
+    document.body.style.position = 'fixed';
+    document.body.style.top = '-' + savedScrollY + 'px';
+    document.body.style.left = '0';
+    document.body.style.right = '0';
+    document.body.style.width = '100%';
+    document.body.style.overflow = 'hidden';
+  }
+
+  function unlockScroll() {
+    var html = document.documentElement;
+    var prevBehavior = html.style.scrollBehavior;
+    html.style.scrollBehavior = 'auto';
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.left = '';
+    document.body.style.right = '';
+    document.body.style.width = '';
+    document.body.style.overflow = '';
+    window.scrollTo(0, savedScrollY);
+    html.style.scrollBehavior = prevBehavior;
+  }
+
+  function close() {
+    if (document.activeElement && overlay.contains(document.activeElement)) {
+      document.activeElement.blur();
+    }
+    overlay.hidden = true;
+    unlockScroll();
+  }
+
+  function open(source) {
+    var svg = source.querySelector('svg');
+    if (!svg) return;
+    inner.replaceChildren(svg.cloneNode(true));
+    inner.setAttribute('aria-label', source.getAttribute('aria-label') || 'Pipeline diagram');
+    lockScroll();
+    overlay.hidden = false;
+    closeBtn.focus({ preventScroll: true });
+  }
+
+  document.querySelectorAll('.project-card .project-diagram').forEach(function(fig) {
+    fig.setAttribute('tabindex', '0');
+    fig.setAttribute('title', 'Click to enlarge');
+
+    fig.addEventListener('click', function(e) {
+      e.preventDefault();
+      open(fig);
+    });
+    fig.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        open(fig);
+      }
+    });
+  });
+
+  closeBtn.addEventListener('click', close);
+  backdrop.addEventListener('click', close);
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) close();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && !overlay.hidden) {
+      e.preventDefault();
+      close();
+    }
+  });
 })();
 </script>
 
