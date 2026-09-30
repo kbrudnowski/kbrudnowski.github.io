@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="dark">
-<title>Krzysztof (Chris) Brudnowski — Senior Software / Data Engineer</title>
-<meta name="description" content="Senior software and data engineer based in Gdańsk. Python, dbt, GCP, LLM agents, data pipelines. 5+ years in production.">
-<meta property="og:title" content="Krzysztof (Chris) Brudnowski — Senior Software / Data Engineer">
-<meta property="og:description" content="Building data platforms and AI systems that run in production.">
+<title>Krzysztof (Chris) Brudnowski — Senior Software Engineer, Python &amp; Agentic AI</title>
+<meta name="description" content="Senior software engineer based in Gdańsk. Python, GenAI and agentic AI: LLM agents, RAG, MCP tool servers, plus dbt/GCP data pipelines. 5+ years in production.">
+<meta property="og:title" content="Krzysztof (Chris) Brudnowski — Senior Software Engineer, Python &amp; Agentic AI">
+<meta property="og:description" content="Building LLM agents and AI systems that run in production.">
 <meta property="og:type" content="website">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230a0f1a'/><text x='6' y='24' font-size='20' fill='%2364ffda' font-family='monospace'>K</text></svg>">
 <style>
@@ -726,8 +726,8 @@ section { margin-bottom: 72px; }
 
       <div>
         <h1 class="name">Krzysztof <span class="name-nick">(Chris)</span><br>Brudnowski</h1>
-        <p class="role">Senior Software / Data Engineer</p>
-        <p class="tagline">Building data platforms and AI systems that run in production.</p>
+        <p class="role">Senior Software Engineer · Python, GenAI &amp; Agentic AI</p>
+        <p class="tagline">Building LLM agents and AI systems that run in production.</p>
       </div>
 
       <nav class="sidebar-nav" aria-label="Page sections">
@@ -766,7 +766,7 @@ section { margin-bottom: 72px; }
     <!-- Print-only header (hidden on screen) -->
     <div class="print-header" aria-hidden="true">
       <h1>Krzysztof (Chris) Brudnowski</h1>
-      <p class="print-role">Senior Software / Data Engineer</p>
+      <p class="print-role">Senior Software Engineer · Python, GenAI &amp; Agentic AI</p>
       <div class="print-contact">
         <span>krzysztof.brudnowski@gmail.com</span>
         <span>+48 608 53 40 30</span>
@@ -780,8 +780,8 @@ section { margin-bottom: 72px; }
     <section id="about">
       <p class="section-label">About</p>
       <div class="about-text">
-        <p>Senior software and data engineer with <strong>5+ years</strong> building production data pipelines, backend services, and autonomous AI-agent systems in Python. Strong across the modern data stack (dbt, Airflow, BigQuery), software engineering practices (Terraform/IaC, CI/CD, TDD), and LLM application development.</p>
-        <p>AI-native in daily practice: LLM agents running in production, plus shared conventions and Claude Code / MCP tooling the team builds on. Proven record of automating business processes, cutting infrastructure cost, and translating finance and business requirements into tested, version-controlled systems.</p>
+        <p>Senior software engineer with <strong>5+ years</strong> in Python, building LLM agents and AI automation in production alongside data pipelines and backend services. At Morele, LLM agents <strong>resolved 70%+ of ~5,000 weekly customer complaints</strong>; at Booksy, production dbt/Airflow/BigQuery pipelines plus team tooling around Claude Code and MCP.</p>
+        <p>Ships with Terraform-managed infrastructure, CI/CD, and tested code. Works directly with Finance and other non-technical stakeholders, turning business and accounting requirements into version-controlled systems.</p>
       </div>
     </section>
 
@@ -802,7 +802,7 @@ section { margin-bottom: 72px; }
           <li>Designed dbt models for SaaS revenue recognition aligned with <strong>GAAP / ASC 606</strong>, partnering with Finance to turn accounting requirements into tested, version-controlled SQL; outputs feed audit-ready monthly reporting.</li>
           <li><strong>Drove dbt test coverage from ~22% to ~97%</strong> across the production model catalogue — 10 to 144 models with tests, over 1,500 assertions added.</li>
           <li>Managed GCP infrastructure as code with Terraform across <strong>3 environments</strong> (dev, prod, sandbox); added CI checks to catch issues before release.</li>
-          <li>Author and maintain shared coding conventions and Claude Code skills for the team.</li>
+          <li>Author and maintain shared coding conventions and Claude Code / MCP skills for the team.</li>
         </ul>
       </div>
 
@@ -811,13 +811,18 @@ section { margin-bottom: 72px; }
           <p class="exp-dates">Oct 2023 — Dec 2025</p>
           <h2 class="exp-role">Software Engineer (Python / AI) <span class="company">· Morele.net</span></h2>
           <div class="exp-tags">
-            <span class="tag">Python</span><span class="tag">LLM / Claude API</span><span class="tag">Selenium</span><span class="tag">SQL</span><span class="tag">Jenkins</span><span class="tag">GitLab CI</span>
+            <span class="tag">Python</span><span class="tag">OpenAI API</span><span class="tag">pgvector</span><span class="tag">PostgreSQL</span><span class="tag">Selenium</span><span class="tag">SQL</span><span class="tag">Jenkins</span><span class="tag">GitLab CI</span><span class="tag">OCR</span>
           </div>
         </div>
         <ul class="exp-bullets">
-          <li>Built autonomous AI agents (Claude / LLM-based) automating business and customer-service workflows; <strong>automated 70%+ of complaint resolution</strong> across ~5,000 weekly cases, cutting operational costs ~20%.</li>
+          <li>Built LLM agents (OpenAI) automating business and customer-service workflows — <strong>resolved 70%+ of ~5,000 weekly complaints</strong> by filing the fault report into the manufacturer's system end-to-end, cutting operational cost ~20%; separate automation covered status monitoring and refunds.</li>
+          <li>Wrote the agents against a <strong>provider-agnostic LLM interface</strong>, so models and vendors could be swapped without touching workflow code.</li>
+          <li>Guardrails and escalation: selected complaint categories always routed to a person, and any report the agent could not complete was requeued to the human queue.</li>
+          <li>Validated prompt changes before release by replaying a set of past tickets and running <strong>automated evals in CI</strong>.</li>
+          <li>Hybrid product matching over the catalogue — pgvector embeddings of product names combined with keyword matching, auto-accepting only above a confidence threshold.</li>
           <li>Designed reusable agent "skills" that execute end-to-end tasks — including one driving a live Selenium browser for autonomous website integrations and scraping.</li>
-          <li>Built an internal platform that lets non-technical staff configure, deploy, and monitor <strong>300+ production bots</strong>; used daily by 10 senior staff.</li>
+          <li>Built an internal platform that lets non-technical staff configure, deploy, and monitor <strong>300+ production bots</strong> — run status, failures and retries, per-bot volumes and success rate, with alerts to the ops team; used daily by 10 senior staff.</li>
+          <li>Built a PDF-to-structured-data pipeline (OpenCV/PIL preprocessing + OCR) extracting shipment data from vector-rendered carrier delivery letters with no embedded text layer, replacing a manual data-entry step.</li>
         </ul>
       </div>
 
@@ -873,48 +878,14 @@ section { margin-bottom: 72px; }
 
         <div class="project-card">
           <p class="project-name">
-            <svg class="project-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
-            <a href="https://github.com/kbrudnowski/WedApp" target="_blank" rel="noopener">WedApp</a>
-          </p>
-          <p class="project-desc">Wedding guest media uploader. Guests scan a QR code and upload photos, video, or voice messages straight to a Google Drive folder. Offline-resilient upload queue via IndexedDB; shared gallery with infinite scroll and lightbox; admin panel for moderation. Full Playwright e2e test suite.</p>
-          <figure class="project-diagram" aria-label="WedApp upload pipeline">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 72" role="img" aria-hidden="true">
-              <text x="160" y="11" text-anchor="middle" class="d-badge">CLOUDFLARE PWA · UPLOAD LINEAGE</text>
-              <rect x="4" y="28" width="46" height="20" rx="3" class="d-node"/>
-              <text x="27" y="41" text-anchor="middle" class="d-label">QR scan</text>
-              <line x1="50" y1="38" x2="58" y2="38" class="d-edge"/><polygon points="58,38 54,36 54,40" class="d-arrow"/>
-              <rect x="58" y="28" width="46" height="20" rx="3" class="d-node"/>
-              <text x="81" y="41" text-anchor="middle" class="d-label">capture</text>
-              <line x1="104" y1="38" x2="112" y2="38" class="d-edge"/><polygon points="112,38 108,36 108,40" class="d-arrow"/>
-              <rect x="112" y="28" width="46" height="20" rx="3" class="d-node d-node-highlight"/>
-              <text x="135" y="41" text-anchor="middle" class="d-label">IndexedDB</text>
-              <line x1="158" y1="38" x2="166" y2="38" class="d-edge"/><polygon points="166,38 162,36 162,40" class="d-arrow"/>
-              <rect x="166" y="28" width="46" height="20" rx="3" class="d-node d-node-accent"/>
-              <text x="189" y="41" text-anchor="middle" class="d-label">Hono API</text>
-              <line x1="212" y1="38" x2="220" y2="38" class="d-edge"/><polygon points="220,38 216,36 216,40" class="d-arrow"/>
-              <rect x="220" y="28" width="46" height="20" rx="3" class="d-node"/>
-              <text x="243" y="41" text-anchor="middle" class="d-label">Drive+D1</text>
-              <line x1="266" y1="38" x2="274" y2="38" class="d-edge"/><polygon points="274,38 270,36 270,40" class="d-arrow"/>
-              <rect x="274" y="28" width="42" height="20" rx="3" class="d-node d-node-accent"/>
-              <text x="295" y="41" text-anchor="middle" class="d-label">gallery</text>
-              <text x="160" y="64" text-anchor="middle" class="d-sublabel">offline queue resumes on reconnect · admin moderates via token</text>
-            </svg>
-          </figure>
-          <div class="project-tags">
-            <span class="tag">Cloudflare Pages</span><span class="tag">D1</span><span class="tag">Hono</span><span class="tag">Google Drive API</span><span class="tag">PWA</span>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <p class="project-name">
             <svg class="project-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 8V7a5 5 0 0 0-10 0v1H5v14h14V8h-2zM9 7a3 3 0 0 1 6 0v1H9V7zm3 11a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"/></svg>
             AI Equity Research Pipeline
             <span class="tag">Private</span>
           </p>
-          <p class="project-desc">LLM equity-research pipeline over US-listed companies. Point-in-time ingestion of SEC filings and earnings calls feeds LangGraph dossier and debate graphs, which produce falsifiable theses graded against a forecast ledger when they resolve. Every claim is span-cited, and a model-backed validator makes the system incapable of emitting a buy, sell, or price target.</p>
+          <p class="project-desc">LLM equity-research system over US-listed companies. Point-in-time ingestion of SEC filings and earnings calls feeds LangGraph dossier and multi-agent debate graphs, which produce falsifiable theses graded against a forecast ledger when they resolve. Exposed as an <strong>MCP tool server</strong> so token-heavy reasoning runs in Claude, while ingestion, retrieval, validation and the ledger stay deterministic Python. Every claim is span-cited, and a model-backed validator makes the system incapable of emitting a buy, sell, or price target.</p>
           <figure class="project-diagram" aria-label="Equity research pipeline">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 108" role="img" aria-hidden="true">
-              <text x="160" y="11" text-anchor="middle" class="d-badge">LANGGRAPH · POINT-IN-TIME EQUITY RESEARCH</text>
+              <text x="160" y="11" text-anchor="middle" class="d-badge">MCP TOOL SERVER · LANGGRAPH · POINT-IN-TIME RESEARCH</text>
               <rect x="4" y="24" width="44" height="20" rx="3" class="d-node"/>
               <text x="26" y="37" text-anchor="middle" class="d-label">filings</text>
               <line x1="48" y1="34" x2="54" y2="34" class="d-edge"/><polygon points="54,34 50,32 50,36" class="d-arrow"/>
@@ -948,17 +919,60 @@ section { margin-bottom: 72px; }
             </svg>
           </figure>
           <div class="project-tags">
-            <span class="tag">Python</span><span class="tag">LangGraph</span><span class="tag">LLM</span><span class="tag">Pydantic</span><span class="tag">SEC filings</span><span class="tag">Evals</span>
+            <span class="tag">Python</span><span class="tag">MCP</span><span class="tag">LangGraph</span><span class="tag">LLM</span><span class="tag">Pydantic</span><span class="tag">SEC filings</span><span class="tag">Evals</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <p class="project-name">
+            Office Automation Platform for Trade Businesses
+            <span class="tag">Private</span>
+          </p>
+          <p class="project-desc">Office-automation web app for small trade businesses. Handles client requests and quotes, plus a multi-user calendar that assigns jobs across the owner, the crew, and external contractors. LLM features filter incoming inquiries and draft both quotes and client emails, which the owner reviews and sends — nothing reaches a client unread. Deployed white-label on each client's own subdomain.</p>
+          <figure class="project-diagram" aria-label="Inquiry to quote workflow with owner approval">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 108" role="img" aria-hidden="true">
+              <text x="160" y="11" text-anchor="middle" class="d-badge">DJANGO · LLM DRAFTING BEHIND HUMAN APPROVAL</text>
+              <rect x="4" y="24" width="50" height="20" rx="3" class="d-node"/>
+              <text x="29" y="37" text-anchor="middle" class="d-label">inquiry</text>
+              <line x1="54" y1="34" x2="62" y2="34" class="d-edge"/><polygon points="62,34 58,32 58,36" class="d-arrow"/>
+              <rect x="62" y="24" width="58" height="20" rx="3" class="d-node d-node-highlight"/>
+              <text x="91" y="37" text-anchor="middle" class="d-label">LLM filter</text>
+              <line x1="120" y1="34" x2="128" y2="34" class="d-edge"/><polygon points="128,34 124,32 124,36" class="d-arrow"/>
+              <rect x="128" y="24" width="50" height="20" rx="3" class="d-node"/>
+              <text x="153" y="37" text-anchor="middle" class="d-label">draft</text>
+              <line x1="178" y1="34" x2="186" y2="34" class="d-edge"/><polygon points="186,34 182,32 182,36" class="d-arrow"/>
+              <rect x="186" y="24" width="72" height="20" rx="3" class="d-node d-node-accent"/>
+              <text x="222" y="37" text-anchor="middle" class="d-label">owner review</text>
+              <line x1="258" y1="34" x2="266" y2="34" class="d-edge"/><polygon points="266,34 262,32 262,36" class="d-arrow"/>
+              <text x="262" y="20" text-anchor="middle" class="d-sublabel">approved</text>
+              <rect x="266" y="24" width="50" height="20" rx="3" class="d-node d-node-highlight"/>
+              <text x="291" y="37" text-anchor="middle" class="d-label">sent</text>
+              <line x1="222" y1="44" x2="222" y2="54" class="d-edge-muted"/>
+              <line x1="222" y1="54" x2="80" y2="54" class="d-edge-muted"/>
+              <line x1="80" y1="54" x2="80" y2="62" class="d-edge-muted"/>
+              <text x="150" y="51" text-anchor="middle" class="d-sublabel">edit / reject</text>
+              <rect x="52" y="62" width="56" height="18" rx="3" class="d-node"/>
+              <text x="80" y="74" text-anchor="middle" class="d-sublabel">REDRAFT</text>
+              <line x1="291" y1="44" x2="291" y2="78" class="d-edge"/>
+              <line x1="291" y1="78" x2="222" y2="78" class="d-edge"/>
+              <polygon points="222,78 226,76 226,80" class="d-arrow"/>
+              <rect x="140" y="68" width="82" height="20" rx="3" class="d-node d-node-accent"/>
+              <text x="181" y="81" text-anchor="middle" class="d-label">calendar + crew</text>
+              <text x="160" y="102" text-anchor="middle" class="d-sublabel">jobs assigned across owner, crew and contractors</text>
+            </svg>
+          </figure>
+          <div class="project-tags">
+            <span class="tag">Python</span><span class="tag">Django</span><span class="tag">LLM</span><span class="tag">PostgreSQL</span><span class="tag">Multi-tenant</span>
           </div>
         </div>
 
         <div class="project-card">
           <p class="project-name">
             <svg class="project-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 8V7a5 5 0 0 0-10 0v1H5v14h14V8h-2zM9 7a3 3 0 0 1 6 0v1H9V7zm3 11a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"/></svg>
-            Quant LLM Fund
+            Quant Ranking &amp; Allocation Service
             <span class="tag">Private</span>
           </p>
-          <p class="project-desc">The numeric half of the same system, kept deliberately separate. A LightGBM cross-sectional ranker feeds Black–Litterman allocation via skfolio, over point-in-time S&amp;P 500 membership reconstructed back to 1996. A walk-forward backtest with ablation gating decides what ships. Serves the research pipeline over HTTP behind shared Pydantic contracts.</p>
+          <p class="project-desc">The numeric half of the equity-research system, kept deliberately separate. A LightGBM cross-sectional ranker feeds Black–Litterman allocation via skfolio, over point-in-time S&amp;P 500 membership reconstructed back to 1996. A walk-forward backtest with ablation gating decides what ships. Serves the research pipeline over HTTP behind shared Pydantic contracts.</p>
           <figure class="project-diagram" aria-label="Cross-sectional ranking and allocation pipeline">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 108" role="img" aria-hidden="true">
               <text x="160" y="11" text-anchor="middle" class="d-badge">CROSS-SECTIONAL RANKER · WALK-FORWARD BACKTEST</text>
@@ -996,6 +1010,40 @@ section { margin-bottom: 72px; }
           </figure>
           <div class="project-tags">
             <span class="tag">Python</span><span class="tag">LightGBM</span><span class="tag">skfolio</span><span class="tag">FastAPI</span><span class="tag">Pydantic</span><span class="tag">Backtesting</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <p class="project-name">
+            <svg class="project-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
+            <a href="https://github.com/kbrudnowski/WedApp" target="_blank" rel="noopener">WedApp</a>
+          </p>
+          <p class="project-desc">Wedding guest media uploader. Guests scan a QR code and upload photos, video, or voice messages straight to a Google Drive folder. Offline-resilient upload queue via IndexedDB; shared gallery with infinite scroll and lightbox; admin panel for moderation. Full Playwright e2e test suite.</p>
+          <figure class="project-diagram" aria-label="WedApp upload pipeline">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 72" role="img" aria-hidden="true">
+              <text x="160" y="11" text-anchor="middle" class="d-badge">CLOUDFLARE PWA · UPLOAD LINEAGE</text>
+              <rect x="4" y="28" width="46" height="20" rx="3" class="d-node"/>
+              <text x="27" y="41" text-anchor="middle" class="d-label">QR scan</text>
+              <line x1="50" y1="38" x2="58" y2="38" class="d-edge"/><polygon points="58,38 54,36 54,40" class="d-arrow"/>
+              <rect x="58" y="28" width="46" height="20" rx="3" class="d-node"/>
+              <text x="81" y="41" text-anchor="middle" class="d-label">capture</text>
+              <line x1="104" y1="38" x2="112" y2="38" class="d-edge"/><polygon points="112,38 108,36 108,40" class="d-arrow"/>
+              <rect x="112" y="28" width="46" height="20" rx="3" class="d-node d-node-highlight"/>
+              <text x="135" y="41" text-anchor="middle" class="d-label">IndexedDB</text>
+              <line x1="158" y1="38" x2="166" y2="38" class="d-edge"/><polygon points="166,38 162,36 162,40" class="d-arrow"/>
+              <rect x="166" y="28" width="46" height="20" rx="3" class="d-node d-node-accent"/>
+              <text x="189" y="41" text-anchor="middle" class="d-label">Hono API</text>
+              <line x1="212" y1="38" x2="220" y2="38" class="d-edge"/><polygon points="220,38 216,36 216,40" class="d-arrow"/>
+              <rect x="220" y="28" width="46" height="20" rx="3" class="d-node"/>
+              <text x="243" y="41" text-anchor="middle" class="d-label">Drive+D1</text>
+              <line x1="266" y1="38" x2="274" y2="38" class="d-edge"/><polygon points="274,38 270,36 270,40" class="d-arrow"/>
+              <rect x="274" y="28" width="42" height="20" rx="3" class="d-node d-node-accent"/>
+              <text x="295" y="41" text-anchor="middle" class="d-label">gallery</text>
+              <text x="160" y="64" text-anchor="middle" class="d-sublabel">offline queue resumes on reconnect · admin moderates via token</text>
+            </svg>
+          </figure>
+          <div class="project-tags">
+            <span class="tag">Cloudflare Pages</span><span class="tag">D1</span><span class="tag">Hono</span><span class="tag">Google Drive API</span><span class="tag">PWA</span>
           </div>
         </div>
 
@@ -1083,13 +1131,13 @@ section { margin-bottom: 72px; }
         <div class="skill-group">
           <span class="skill-group-label">AI & Agents</span>
           <div class="skill-tags">
-            <span class="tag">LLM app development</span><span class="tag">Autonomous AI agents</span><span class="tag">LangGraph</span><span class="tag">LangChain</span><span class="tag">Claude API</span><span class="tag">OpenAI API</span><span class="tag">Prompt engineering</span><span class="tag">Structured outputs &amp; validators</span><span class="tag">Eval harnesses</span><span class="tag">AI-native development</span><span class="tag">Selenium</span>
+            <span class="tag">LLM app development</span><span class="tag">Autonomous AI agents</span><span class="tag">RAG</span><span class="tag">MCP tool servers</span><span class="tag">LangGraph</span><span class="tag">LangChain</span><span class="tag">Claude API</span><span class="tag">OpenAI API</span><span class="tag">Embeddings</span><span class="tag">Hybrid search</span><span class="tag">Prompt engineering</span><span class="tag">Structured outputs &amp; validators</span><span class="tag">Eval harnesses</span><span class="tag">AI-native development</span><span class="tag">Selenium</span>
           </div>
         </div>
         <div class="skill-group">
           <span class="skill-group-label">Data Stack</span>
           <div class="skill-tags">
-            <span class="tag">dbt</span><span class="tag">Apache Airflow</span><span class="tag">PySpark</span><span class="tag">ETL / ELT</span><span class="tag">Data warehousing</span><span class="tag">Postgres</span>
+            <span class="tag">dbt</span><span class="tag">Apache Airflow</span><span class="tag">PySpark</span><span class="tag">ETL / ELT</span><span class="tag">Data warehousing</span><span class="tag">PostgreSQL</span><span class="tag">pgvector</span><span class="tag">Data quality</span>
           </div>
         </div>
         <div class="skill-group">
@@ -1133,8 +1181,6 @@ section { margin-bottom: 72px; }
             <li>PCPP1 — Certified Professional Python Programmer (OpenEDG)</li>
             <li>Python TDD: Test-Driven Development and CI/CD</li>
             <li>Machine Learning A–Z: Python &amp; R in Data Science</li>
-            <li>100 Days of Code: Python Pro Bootcamp</li>
-            <li>SQL – MySQL for Data Analytics and Business Intelligence</li>
           </ul>
         </div>
 
