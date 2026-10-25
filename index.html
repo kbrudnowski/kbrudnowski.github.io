@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="dark">
-<title>Krzysztof (Chris) Brudnowski — Senior Software Engineer, Python &amp; Agentic AI</title>
-<meta name="description" content="Senior software engineer based in Gdańsk. Python, GenAI and agentic AI: LLM agents, RAG, MCP tool servers, plus dbt/GCP data pipelines. 5+ years in production.">
-<meta property="og:title" content="Krzysztof (Chris) Brudnowski — Senior Software Engineer, Python &amp; Agentic AI">
-<meta property="og:description" content="Building LLM agents and AI systems that run in production.">
+<title>Krzysztof (Chris) Brudnowski — Senior Python Engineer, AI / LLM Systems</title>
+<meta name="description" content="Senior Python engineer based in Gdańsk, AI-native: builds and runs production LLM systems end to end (backend, data, front end, evals), with a data-platform background and a finance degree.">
+<meta property="og:title" content="Krzysztof (Chris) Brudnowski — Senior Python Engineer, AI / LLM Systems">
+<meta property="og:description" content="Builds and runs production LLM systems end to end.">
 <meta property="og:type" content="website">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230a0f1a'/><text x='6' y='24' font-size='20' fill='%2364ffda' font-family='monospace'>K</text></svg>">
 <style>
@@ -726,8 +726,8 @@ section { margin-bottom: 72px; }
 
       <div>
         <h1 class="name">Krzysztof <span class="name-nick">(Chris)</span><br>Brudnowski</h1>
-        <p class="role">Senior Software Engineer · Python, GenAI &amp; Agentic AI</p>
-        <p class="tagline">Building LLM agents and AI systems that run in production.</p>
+        <p class="role">Senior Python Engineer · AI / LLM systems · Data platforms</p>
+        <p class="tagline">Builds and runs production LLM systems end to end.</p>
       </div>
 
       <nav class="sidebar-nav" aria-label="Page sections">
@@ -766,7 +766,7 @@ section { margin-bottom: 72px; }
     <!-- Print-only header (hidden on screen) -->
     <div class="print-header" aria-hidden="true">
       <h1>Krzysztof (Chris) Brudnowski</h1>
-      <p class="print-role">Senior Software Engineer · Python, GenAI &amp; Agentic AI</p>
+      <p class="print-role">Senior Python Engineer · AI / LLM systems · Data platforms</p>
       <div class="print-contact">
         <span>krzysztof.brudnowski@gmail.com</span>
         <span>+48 608 53 40 30</span>
@@ -780,8 +780,8 @@ section { margin-bottom: 72px; }
     <section id="about">
       <p class="section-label">About</p>
       <div class="about-text">
-        <p>Senior software engineer with <strong>5+ years</strong> in Python, building LLM agents and AI automation in production alongside data pipelines and backend services. At Morele, LLM agents <strong>resolved 70%+ of ~5,000 weekly customer complaints</strong>; at Booksy, production dbt/Airflow/BigQuery pipelines plus team tooling around Claude Code and MCP.</p>
-        <p>Ships with Terraform-managed infrastructure, CI/CD, and tested code. Works directly with Finance and other non-technical stakeholders, turning business and accounting requirements into version-controlled systems.</p>
+        <p>Senior Python engineer, AI-native: builds and runs production LLM systems end to end (backend, data, front end, evals), with a data-platform background and a finance degree. At Morele.net I ran an LLM agent platform that handled <strong>~5,000 customer cases a week</strong> across 300+ bots and resolved <strong>~70% without a person</strong>, next to a hybrid-RAG invoice matcher settling over 90% of lines automatically.</p>
+        <p>Full-stack: FastAPI and Django backends, React and server-rendered front ends, PostgreSQL, Docker and CI/CD, shipped solo and in a team. Now running data pipelines for a 260M+-bookings-a-year marketplace at Booksy (dbt, Airflow, BigQuery). MSc in investments; earlier at PwC's Financial Crime Unit.</p>
       </div>
     </section>
 
@@ -811,7 +811,7 @@ section { margin-bottom: 72px; }
           <p class="exp-dates">Oct 2023 — Dec 2025</p>
           <h2 class="exp-role">Software Engineer (Python / AI) <span class="company">· Morele.net</span></h2>
           <div class="exp-tags">
-            <span class="tag">Python</span><span class="tag">OpenAI API</span><span class="tag">pgvector</span><span class="tag">PostgreSQL</span><span class="tag">Selenium</span><span class="tag">SQL</span><span class="tag">Jenkins</span><span class="tag">GitLab CI</span><span class="tag">OCR</span>
+            <span class="tag">Python</span><span class="tag">OpenAI API</span><span class="tag">Claude API</span><span class="tag">FastAPI</span><span class="tag">React</span><span class="tag">Qdrant</span><span class="tag">PostgreSQL</span><span class="tag">Jenkins</span><span class="tag">GitLab CI</span><span class="tag">OCR</span>
           </div>
         </div>
         <ul class="exp-bullets">
@@ -819,9 +819,9 @@ section { margin-bottom: 72px; }
           <li>Wrote the agents against a <strong>provider-agnostic LLM interface</strong>, so models and vendors could be swapped without touching workflow code.</li>
           <li>Guardrails and escalation: selected complaint categories always routed to a person, and any report the agent could not complete was requeued to the human queue.</li>
           <li>Validated prompt changes before release by replaying a set of past tickets and running <strong>automated evals in CI</strong>.</li>
-          <li>Hybrid product matching over the catalogue — pgvector embeddings of product names combined with keyword matching, auto-accepting only above a confidence threshold.</li>
+          <li>Built a FastAPI service ingesting <strong>10k+ supplier invoices a month</strong> (KSeF XML, ~400 suppliers) with a three-pass matcher for the long tail: SQL on EAN and alias tables, hybrid RAG over Qdrant (dense + BM25 fused by reciprocal rank fusion), then Claude as judge — <strong>over 90% of lines settled without a person</strong>.</li>
           <li>Designed reusable agent "skills" that execute end-to-end tasks — including one driving a live Selenium browser for autonomous website integrations and scraping.</li>
-          <li>Built an internal platform that lets non-technical staff configure, deploy, and monitor <strong>300+ production bots</strong> — run status, failures and retries, per-bot volumes and success rate, with alerts to the ops team; used daily by 10 senior staff.</li>
+          <li>Shipped the FastAPI/React platform where ~10 senior operations staff configure and monitor <strong>300+ production bots</strong>: forms generated from each bot's config schema, run status, retries and success rate, LDAP login with role-based access, secrets in Vault, every change audited.</li>
           <li>Built a PDF-to-structured-data pipeline (OpenCV/PIL preprocessing + OCR) extracting shipment data from vector-rendered carrier delivery letters with no embedded text layer, replacing a manual data-entry step.</li>
         </ul>
       </div>
@@ -879,10 +879,10 @@ section { margin-bottom: 72px; }
         <div class="project-card">
           <p class="project-name">
             <svg class="project-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 8V7a5 5 0 0 0-10 0v1H5v14h14V8h-2zM9 7a3 3 0 0 1 6 0v1H9V7zm3 11a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"/></svg>
-            AI Equity Research Pipeline
-            <span class="tag">Private</span>
+            <a href="https://github.com/kbrudnowski/seeker-mcp-docs" target="_blank" rel="noopener">Company Seeker — MCP server for grounded equity research</a>
+            <span class="tag">Source private · docs public</span>
           </p>
-          <p class="project-desc">LLM equity-research system over US-listed companies. Point-in-time ingestion of SEC filings and earnings calls feeds LangGraph dossier and multi-agent debate graphs, which produce falsifiable theses graded against a forecast ledger when they resolve. Exposed as an <strong>MCP tool server</strong> so token-heavy reasoning runs in Claude, while ingestion, retrieval, validation and the ledger stay deterministic Python. Every claim is span-cited, and a model-backed validator makes the system incapable of emitting a buy, sell, or price target.</p>
+          <p class="project-desc">An <strong>MCP server</strong> (7 tools over stdio, 4 over streamable HTTP with OAuth) and a FastAPI REST/SSE API over point-in-time SEC filings, XBRL facts and earnings-call transcripts. LangGraph dossier graphs with Postgres checkpoints and human approval before the expensive stages; every LLM claim is span-cited to a stored passage or rejected by a fail-closed validator, and forecasts are graded with a Brier score when they resolve. Releases are gated by an eval harness: a drop above 0.05 fails CI, and the guardrail against investment advice refuses <strong>10 of 10</strong> held-out recommendations while allowing 12 of 12 research passages. ~58k lines, 2,600+ tests.</p>
           <figure class="project-diagram" aria-label="Equity research pipeline">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 108" role="img" aria-hidden="true">
               <text x="160" y="11" text-anchor="middle" class="d-badge">MCP TOOL SERVER · LANGGRAPH · POINT-IN-TIME RESEARCH</text>
@@ -919,50 +919,50 @@ section { margin-bottom: 72px; }
             </svg>
           </figure>
           <div class="project-tags">
-            <span class="tag">Python</span><span class="tag">MCP</span><span class="tag">LangGraph</span><span class="tag">LLM</span><span class="tag">Pydantic</span><span class="tag">SEC filings</span><span class="tag">Evals</span>
+            <span class="tag">Python</span><span class="tag">MCP</span><span class="tag">FastAPI</span><span class="tag">LangGraph</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span><span class="tag">Evals</span>
           </div>
         </div>
 
         <div class="project-card">
           <p class="project-name">
-            Office Automation Platform for Trade Businesses
-            <span class="tag">Private</span>
+            Sentrala — system of record for a trades business
+            <span class="tag">Private · in pilot</span>
           </p>
-          <p class="project-desc">Office-automation web app for small trade businesses. Handles client requests and quotes, plus a multi-user calendar that assigns jobs across the owner, the crew, and external contractors. LLM features filter incoming inquiries and draft both quotes and client emails, which the owner reviews and sends — nothing reaches a client unread. Deployed white-label on each client's own subdomain.</p>
+          <p class="project-desc">Built solo: a Django 5.1 and PostgreSQL system of record for a small trades business, server-rendered. Four intake channels (phone, SMS, e-mail, chat) are normalised into one stream and LLM-extracted into proposals that the owner approves before anything is committed. ~80k lines of Python, 2,000+ tests, Docker on one VPS per tenant, Google OAuth and magic-link login denied by default. In pilot with one business.</p>
           <figure class="project-diagram" aria-label="Inquiry to quote workflow with owner approval">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 108" role="img" aria-hidden="true">
-              <text x="160" y="11" text-anchor="middle" class="d-badge">DJANGO · LLM DRAFTING BEHIND HUMAN APPROVAL</text>
+              <text x="160" y="11" text-anchor="middle" class="d-badge">DJANGO · LLM EXTRACTION BEHIND OWNER APPROVAL</text>
               <rect x="4" y="24" width="50" height="20" rx="3" class="d-node"/>
-              <text x="29" y="37" text-anchor="middle" class="d-label">inquiry</text>
+              <text x="29" y="37" text-anchor="middle" class="d-label">intake</text>
               <line x1="54" y1="34" x2="62" y2="34" class="d-edge"/><polygon points="62,34 58,32 58,36" class="d-arrow"/>
               <rect x="62" y="24" width="58" height="20" rx="3" class="d-node d-node-highlight"/>
-              <text x="91" y="37" text-anchor="middle" class="d-label">LLM filter</text>
+              <text x="91" y="37" text-anchor="middle" class="d-label">LLM extract</text>
               <line x1="120" y1="34" x2="128" y2="34" class="d-edge"/><polygon points="128,34 124,32 124,36" class="d-arrow"/>
               <rect x="128" y="24" width="50" height="20" rx="3" class="d-node"/>
-              <text x="153" y="37" text-anchor="middle" class="d-label">draft</text>
+              <text x="153" y="37" text-anchor="middle" class="d-label">proposal</text>
               <line x1="178" y1="34" x2="186" y2="34" class="d-edge"/><polygon points="186,34 182,32 182,36" class="d-arrow"/>
               <rect x="186" y="24" width="72" height="20" rx="3" class="d-node d-node-accent"/>
               <text x="222" y="37" text-anchor="middle" class="d-label">owner review</text>
               <line x1="258" y1="34" x2="266" y2="34" class="d-edge"/><polygon points="266,34 262,32 262,36" class="d-arrow"/>
               <text x="262" y="20" text-anchor="middle" class="d-sublabel">approved</text>
               <rect x="266" y="24" width="50" height="20" rx="3" class="d-node d-node-highlight"/>
-              <text x="291" y="37" text-anchor="middle" class="d-label">sent</text>
+              <text x="291" y="37" text-anchor="middle" class="d-label">commit</text>
               <line x1="222" y1="44" x2="222" y2="54" class="d-edge-muted"/>
               <line x1="222" y1="54" x2="80" y2="54" class="d-edge-muted"/>
               <line x1="80" y1="54" x2="80" y2="62" class="d-edge-muted"/>
-              <text x="150" y="51" text-anchor="middle" class="d-sublabel">edit / reject</text>
+              <text x="150" y="51" text-anchor="middle" class="d-sublabel">correct / reject</text>
               <rect x="52" y="62" width="56" height="18" rx="3" class="d-node"/>
-              <text x="80" y="74" text-anchor="middle" class="d-sublabel">REDRAFT</text>
+              <text x="80" y="74" text-anchor="middle" class="d-sublabel">RESCOPE</text>
               <line x1="291" y1="44" x2="291" y2="78" class="d-edge"/>
               <line x1="291" y1="78" x2="222" y2="78" class="d-edge"/>
               <polygon points="222,78 226,76 226,80" class="d-arrow"/>
               <rect x="140" y="68" width="82" height="20" rx="3" class="d-node d-node-accent"/>
-              <text x="181" y="81" text-anchor="middle" class="d-label">calendar + crew</text>
-              <text x="160" y="102" text-anchor="middle" class="d-sublabel">jobs assigned across owner, crew and contractors</text>
+              <text x="181" y="81" text-anchor="middle" class="d-label">jobs + calendar</text>
+              <text x="160" y="102" text-anchor="middle" class="d-sublabel">phone · SMS · e-mail · chat into one stream</text>
             </svg>
           </figure>
           <div class="project-tags">
-            <span class="tag">Python</span><span class="tag">Django</span><span class="tag">LLM</span><span class="tag">PostgreSQL</span><span class="tag">Multi-tenant</span>
+            <span class="tag">Python</span><span class="tag">Django</span><span class="tag">LLM</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span>
           </div>
         </div>
 
@@ -1115,6 +1115,18 @@ section { margin-bottom: 72px; }
           </div>
         </div>
 
+        <div class="project-card">
+          <p class="project-name">
+            <svg class="project-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
+            <a href="https://github.com/dbt-labs/dbt-adapters/pull/2251" target="_blank" rel="noopener">dbt-labs/dbt-adapters</a>
+            <span class="tag">Open source</span>
+          </p>
+          <p class="project-desc">Fix for BigQuery model contracts on ARRAY of STRUCT columns, where nested parents lost their array type in the generated contract (pull request 2251, open, Oct 2026).</p>
+          <div class="project-tags">
+            <span class="tag">Python</span><span class="tag">dbt</span><span class="tag">BigQuery</span>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -1131,25 +1143,25 @@ section { margin-bottom: 72px; }
         <div class="skill-group">
           <span class="skill-group-label">AI & Agents</span>
           <div class="skill-tags">
-            <span class="tag">LLM app development</span><span class="tag">Autonomous AI agents</span><span class="tag">RAG</span><span class="tag">MCP tool servers</span><span class="tag">LangGraph</span><span class="tag">LangChain</span><span class="tag">Claude API</span><span class="tag">OpenAI API</span><span class="tag">Embeddings</span><span class="tag">Hybrid search</span><span class="tag">Prompt engineering</span><span class="tag">Structured outputs &amp; validators</span><span class="tag">Eval harnesses</span><span class="tag">AI-native development</span><span class="tag">Selenium</span>
+            <span class="tag">LLM app development</span><span class="tag">Autonomous AI agents</span><span class="tag">RAG</span><span class="tag">MCP tool servers</span><span class="tag">LangGraph</span><span class="tag">LangChain</span><span class="tag">Claude API</span><span class="tag">OpenAI API</span><span class="tag">Embeddings</span><span class="tag">Hybrid search (Qdrant)</span><span class="tag">Prompt engineering</span><span class="tag">Structured outputs &amp; validators</span><span class="tag">Eval harnesses</span><span class="tag">AI-native development</span><span class="tag">Selenium</span>
           </div>
         </div>
         <div class="skill-group">
           <span class="skill-group-label">Data Stack</span>
           <div class="skill-tags">
-            <span class="tag">dbt</span><span class="tag">Apache Airflow</span><span class="tag">PySpark</span><span class="tag">ETL / ELT</span><span class="tag">Data warehousing</span><span class="tag">PostgreSQL</span><span class="tag">pgvector</span><span class="tag">Data quality</span>
+            <span class="tag">dbt</span><span class="tag">Apache Airflow</span><span class="tag">PySpark</span><span class="tag">ETL / ELT</span><span class="tag">Data warehousing</span><span class="tag">PostgreSQL</span><span class="tag">Kafka</span><span class="tag">Data quality</span>
           </div>
         </div>
         <div class="skill-group">
           <span class="skill-group-label">Cloud & Infra</span>
           <div class="skill-tags">
-            <span class="tag">GCP / BigQuery</span><span class="tag">Azure AKS</span><span class="tag">Terraform</span><span class="tag">Docker</span><span class="tag">Cloudflare Pages</span>
+            <span class="tag">AWS (EC2, SageMaker Feature Store, S3)</span><span class="tag">GCP (BigQuery, Composer, Cloud Run)</span><span class="tag">Azure AKS</span><span class="tag">Terraform</span><span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">Cloudflare Pages</span>
           </div>
         </div>
         <div class="skill-group">
           <span class="skill-group-label">Engineering</span>
           <div class="skill-tags">
-            <span class="tag">CI/CD</span><span class="tag">TDD</span><span class="tag">Git</span><span class="tag">Jenkins</span><span class="tag">GitLab CI</span><span class="tag">FastAPI</span><span class="tag">Code review</span>
+            <span class="tag">FastAPI</span><span class="tag">Django</span><span class="tag">React</span><span class="tag">CI/CD</span><span class="tag">TDD</span><span class="tag">Git</span><span class="tag">GitHub Actions</span><span class="tag">GitLab CI</span><span class="tag">Jenkins</span><span class="tag">Code review</span>
           </div>
         </div>
         <div class="skill-group">
